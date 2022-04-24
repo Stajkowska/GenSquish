@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UsedAssets/Action RPG Resources/UI/HeartUIEmpty.png" type="Texture" id=1]
+[ext_resource path="res://UsedAssets/Action RPG Resources/UI/HeartUIFull.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Environment/Heart.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 7.83123
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+
+[node name="Heart" type="StaticBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+disabled = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+playing = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 3 )
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

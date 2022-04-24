@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Video-Game-Power-Level-Up-A2-Fast-www.fesliyanstudios.com.mp3-ce707065652a44d68e5541c829a822fc.mp3str"
+
+[deps]
+
+source_file="res://UsedAssets/Effects/Video-Game-Power-Level-Up-A2-Fast-www.fesliyanstudios.com.mp3"
+dest_files=[ "res://.import/Video-Game-Power-Level-Up-A2-Fast-www.fesliyanstudios.com.mp3-ce707065652a44d68e5541c829a822fc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

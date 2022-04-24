@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2021-01-09_-_Feeling_Free_-_www.FesliyanStudios.com_David_Renda.mp3-022c64a3582fbe03aaf4118a8066a7f0.mp3str"
+
+[deps]
+
+source_file="res://UsedAssets/Music/2021-01-09_-_Feeling_Free_-_www.FesliyanStudios.com_David_Renda.mp3"
+dest_files=[ "res://.import/2021-01-09_-_Feeling_Free_-_www.FesliyanStudios.com_David_Renda.mp3-022c64a3582fbe03aaf4118a8066a7f0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

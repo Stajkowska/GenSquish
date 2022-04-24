@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/SadMusic2018-12-29_-_Cold_Isolation_-_David_Fesliyan.mp3-d31e2db9acde8bcccedb3024874f8a6d.mp3str"
+
+[deps]
+
+source_file="res://UsedAssets/Music/SadMusic2018-12-29_-_Cold_Isolation_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/SadMusic2018-12-29_-_Cold_Isolation_-_David_Fesliyan.mp3-d31e2db9acde8bcccedb3024874f8a6d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

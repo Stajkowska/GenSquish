@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 5.3327
+
+[node name="BedSheet" type="Area2D"]
+scale = Vector2( 2.632, 2.632 )
+collision_layer = 2
+collision_mask = 2
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.379939, -8.35866 )
+shape = SubResource( 1 )

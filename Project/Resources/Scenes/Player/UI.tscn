@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Scripts/GUI.gd" type="Script" id=1]
+[ext_resource path="res://Resources/Scripts/UI.gd" type="Script" id=2]
+[ext_resource path="res://Resources/Art/Props/medicine.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Art/Props/food.png" type="Texture" id=4]
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=5]
+[ext_resource path="res://Resources/Art/Props/lovePotion.png" type="Texture" id=6]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="CanvasForGUI" type="Control" parent="."]
+margin_right = 410.0
+margin_bottom = 250.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MoneyPanel" type="Panel" parent="CanvasForGUI"]
+margin_right = 150.0
+margin_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasForGUI/MoneyPanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 48.0
+margin_bottom = 28.0
+text = "Money:"
+
+[node name="MoneyLabel" type="Label" parent="CanvasForGUI/MoneyPanel"]
+margin_left = 80.0
+margin_top = 8.0
+margin_right = 140.0
+margin_bottom = 28.0
+text = "0$"
+
+[node name="TimePanel" type="Panel" parent="CanvasForGUI"]
+margin_left = 960.0
+margin_right = 1020.0
+margin_bottom = 35.0
+
+[node name="TimeLabel" type="Label" parent="CanvasForGUI/TimePanel"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 50.0
+margin_bottom = 28.0
+text = "06:00"
+
+[node name="CanvasForPopups" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tlo" type="ColorRect" parent="CanvasForPopups"]
+margin_left = -361.0
+margin_top = -161.0
+margin_right = -321.0
+margin_bottom = -121.0
+rect_scale = Vector2( 38.8663, 29.2161 )
+color = Color( 0, 0, 0, 0.709804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SleepPopUp" type="VBoxContainer" parent="CanvasForPopups"]
+visible = false
+margin_left = -43.0
+margin_top = 505.0
+margin_right = 271.0
+margin_bottom = 579.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ConfirmSleep" type="ConfirmationDialog" parent="CanvasForPopups/SleepPopUp"]
+visible = true
+margin_right = 314.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 1, 1 )
+theme = ExtResource( 5 )
+window_title = ""
+dialog_text = "Do you want to go to sleep?"
+
+[node name="SlimeOptionsPopUp" type="Popup" parent="CanvasForPopups"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 228.0
+margin_bottom = 148.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SlimeOptionsPanel" type="Panel" parent="CanvasForPopups/SlimeOptionsPopUp"]
+margin_right = 215.0
+margin_bottom = 135.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasForPopups/SlimeOptionsPopUp"]
+margin_left = 25.0
+margin_top = 8.0
+margin_right = 65.0
+margin_bottom = 48.0
+theme = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect"]
+margin_left = -17.0
+margin_right = 89.0
+margin_bottom = 20.0
+text = "Slime Care"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveMedicineButton" type="Button" parent="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect"]
+anchor_right = 100.0
+margin_left = -17.0
+margin_top = 24.0
+margin_right = -3822.0
+margin_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+text = "Give Medicine"
+icon = ExtResource( 3 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveLPButton" type="Button" parent="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect"]
+margin_left = -17.0
+margin_top = 56.0
+margin_right = 178.0
+margin_bottom = 86.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 5 )
+text = "Give Love Potion"
+icon = ExtResource( 6 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveFoodButton" type="Button" parent="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect"]
+margin_left = -17.0
+margin_top = 88.0
+margin_right = 178.0
+margin_bottom = 118.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Give Food"
+icon = ExtResource( 4 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitButton" type="Button" parent="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect"]
+margin_left = 167.0
+margin_right = 197.0
+margin_bottom = 30.0
+rect_scale = Vector2( 0.5, 0.5 )
+text = "X"
+
+[connection signal="pressed" from="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect/GiveMedicineButton" to="CanvasForPopups" method="_on_GiveMedicineButton_pressed"]
+[connection signal="pressed" from="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect/GiveLPButton" to="CanvasForPopups" method="_on_GiveLPButton_pressed"]
+[connection signal="pressed" from="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect/GiveFoodButton" to="CanvasForPopups" method="_on_GiveFoodButton_pressed"]
+[connection signal="pressed" from="CanvasForPopups/SlimeOptionsPopUp/NinePatchRect/ExitButton" to="CanvasForPopups" method="_on_ExitButton_pressed"]

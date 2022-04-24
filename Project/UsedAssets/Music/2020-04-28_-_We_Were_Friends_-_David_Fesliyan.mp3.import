@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2020-04-28_-_We_Were_Friends_-_David_Fesliyan.mp3-9d2ec1593eedfe57eb68d18760a7e9bc.mp3str"
+
+[deps]
+
+source_file="res://UsedAssets/Music/2020-04-28_-_We_Were_Friends_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/2020-04-28_-_We_Were_Friends_-_David_Fesliyan.mp3-9d2ec1593eedfe57eb68d18760a7e9bc.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

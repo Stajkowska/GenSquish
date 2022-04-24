@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2019-05-22_-_Without_God_-_David_Fesliyan.mp3-702f9258b9f983f8dae779a00dee19e7.mp3str"
+
+[deps]
+
+source_file="res://UsedAssets/Music/2019-05-22_-_Without_God_-_David_Fesliyan.mp3"
+dest_files=[ "res://.import/2019-05-22_-_Without_God_-_David_Fesliyan.mp3-702f9258b9f983f8dae779a00dee19e7.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

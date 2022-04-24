@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://UI/OptionsMainMenu.gd" type="Script" id=1]
+[ext_resource path="res://UI/ButtonSettings.tscn" type="PackedScene" id=2]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+layer = 3
+follow_viewport_scale = 0.5
+
+[node name="CanvasLayer" type="Control" parent="."]
+pause_mode = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 336.0
+margin_bottom = 192.0
+color = Color( 0, 0, 0, 0.356863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="return_to_menu" parent="CanvasLayer" instance=ExtResource( 2 )]
+margin_left = 128.0
+margin_top = 120.0
+margin_right = 203.0
+margin_bottom = 136.0
+text = "Return"
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+margin_left = 104.0
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 88.0
+max_value = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 136.0
+margin_top = 56.0
+margin_right = 200.0
+margin_bottom = 72.0
+text = "Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="CanvasLayer/return_to_menu" to="CanvasLayer" method="_on_return_to_menu_pressed"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_HSlider_value_changed"]
