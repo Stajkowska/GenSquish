@@ -33,8 +33,6 @@ func _ready():
 	animationTree.active = true
 	swordHitBox.kVector = movementVector
 
-
-
 func die():
 	#get_tree().reload_current_scene()
 	stats.health = stats.maxHealth
@@ -116,7 +114,7 @@ func interactSlime(slime):
 	slimeInReach = true
 	Slime = slime
 	
-func interactSlimeLeft(slime):
+func interactSlimeLeft():
 	slimeInReach = false
 	Slime = null
 	

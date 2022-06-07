@@ -25,7 +25,6 @@ func _on_BedSheet_body_exited(body):
 	$SleepPopUp/ConfirmSleep.hide()
 
 func _on_Player_SlimeWindow(slime):
-	print("onPlayerSlimeWindow")
 	self.visible = true
 	Slime = slime
 	$SlimeOptionsPopUp.popup_centered_ratio(0.2)
@@ -43,6 +42,7 @@ func _on_GiveFoodButton_pressed():
 func _on_ExitButton_pressed():
 	self.visible = false;
 	$SlimeOptionsPopUp.hide()
+
 
 func _on_ConfirmSleep_confirmed():
 	emit_signal("dayEnds")

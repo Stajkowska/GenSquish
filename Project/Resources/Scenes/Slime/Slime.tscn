@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Scenes/Enemies/Stats.tscn" type="PackedScene" id=2]
@@ -11,17 +11,18 @@
 [ext_resource path="res://Resources/Scenes/Enemies/WanderController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Resources/Sources/Action RPG Resources/Shadows/SmallShadow.png" type="Texture" id=10]
 [ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=11]
+[ext_resource path="res://Resources/Scenes/Slime/GeneManager.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Shader" id=25]
 code = "shader_type canvas_item;
 
 
 uniform vec4 white_color: hint_color = vec4(1.0);
-uniform vec4 detail_color: hint_color = vec4(1.0);
+uniform vec4 body_color: hint_color = vec4(1.0);
 uniform float tolerance: hint_range(0.0,1.0) = 0.5;
 
 uniform vec4 white_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
-uniform vec4 detail_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
+uniform vec4 body_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
 
 void fragment(){
 	vec4 color_a = texture(TEXTURE,UV);
@@ -29,36 +30,36 @@ void fragment(){
 	float a = color_a.a;
 	
 	float white_len = length(white_mask_color.rgb);
-	float detail_len = length(detail_mask_color.rgb);
+	float body_len = length(body_mask_color.rgb);
 
 	float b_len = length(color);
 	
 	vec3 white_mask_norm = white_mask_color.rgb / white_len * b_len;
 	vec3 white_color_norm = white_color.rgb / white_len * b_len;
-	vec3 detail_mask_norm = detail_mask_color.rgb / detail_len * b_len;
-	vec3 detail_color_norm = detail_color.rgb / detail_len * b_len;
+	vec3 body_mask_norm = body_mask_color.rgb / body_len * b_len;
+	vec3 body_color_norm = body_color.rgb / body_len * b_len;
 	
 	float white_dist = distance(color, white_mask_norm);
-	float detail_dist = distance(color, detail_mask_norm);
+	float body_dist = distance(color, body_mask_norm);
 	
 	color = mix(white_color_norm, color, step(tolerance, white_dist));
-	color = mix(detail_color_norm, color, step(tolerance, detail_dist));
+	color = mix(body_color_norm, color, step(tolerance, body_dist));
 	COLOR = vec4(color, a);
 }"
 
 [sub_resource type="ShaderMaterial" id=26]
 shader = SubResource( 25 )
-shader_param/white_color = Color( 0.984314, 0.223529, 0.509804, 1 )
-shader_param/detail_color = Color( 0.0901961, 0.309804, 0.376471, 1 )
+shader_param/white_color = Color( 0.168627, 0.701961, 0.807843, 1 )
+shader_param/body_color = Color( 0.435294, 0.74902, 0.321569, 1 )
 shader_param/tolerance = 0.5
 shader_param/white_mask_color = Color( 1, 1, 1, 1 )
-shader_param/detail_mask_color = Color( 0.67451, 0.196078, 0.196078, 1 )
+shader_param/body_mask_color = Color( 1, 0, 0.584314, 1 )
 
 [sub_resource type="CapsuleShape2D" id=27]
 height = 0.0
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 19.0263
+radius = 52.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 3.0
@@ -130,9 +131,11 @@ graph_offset = Vector2( 0, -46.152 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=11]
 
-[node name="Slime" type="KinematicBody2D" groups=["Persist"]]
+[node name="Slime" type="KinematicBody2D" groups=["Persist", "Slime"]]
 material = SubResource( 26 )
 script = ExtResource( 8 )
+
+[node name="GeneManager" parent="." instance=ExtResource( 12 )]
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, 2 )
@@ -145,7 +148,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
-visible = false
 position = Vector2( 0, -1 )
 shape = SubResource( 27 )
 
@@ -153,7 +155,6 @@ shape = SubResource( 27 )
 position = Vector2( 0, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
-visible = false
 shape = SubResource( 1 )
 
 [node name="SmallShadow" type="Sprite" parent="."]
