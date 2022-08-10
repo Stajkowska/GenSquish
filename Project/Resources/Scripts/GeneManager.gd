@@ -15,16 +15,16 @@ var blackColourCode = Color("#292929")
 #Gene sequence for Slime
 
 #Alleles
-var sizeGene = "aa" 
+export var sizeGene = "aa" 
 var sizeGeneDictionary = {"aa": 3.0, "bb": 4.0, "AA": 3.5, "BB": 2.0, "Aa": 3.5, "Bb": 2.0, 
-							"ab": 3.5, "aB": 2.0, "bA": 3.5, "AB":2.7}
+							"ab": 3.5, "aB": 2.0, "bA": 3.5, "AB":2.7, "ba": 3.5, "aA": 3.5, "bB": 2.0, "Ba": 2.0, "Ab": 3.5}
 #a - 3.0 A - 3.5
 #b - 4.0 B - 2.0
 #aa - 3.0; AA - 3.5; Aa - 3.5; 
 #bb - 4.0; BB - 2.0; Bb - 2.0; 
 #ab - 3.5; aB - 2.0; bA - 3.5; AB - 2.7
 #genes that dominate dictate the variable, when both have the same strength, the value is average
-var bodyColourGene = "rr"
+export var bodyColourGene = "rr"
 var colourGeneDictionary = {"R": Color("#c72424"), "Y": Color("#dbd221"), "B": Color("#1ed69f"), "I": Color("#8a27cc"), "W": Color("#e6e6e6")}
 
 #r - red; R - orange; Y - yellow; y - green; b - blue; B - mint; I - indigo; i - pink; W - white; w - black.
@@ -39,7 +39,7 @@ var colourGeneHierarchy = {"W": 1, "I": 2, "B": 3, "Y":4, "R":5}
 #Rr - red + orange mixed -> mixed with red
 #Ib - indigo + blue mixed -> mixed with indigo
 #BW - white + mint mixed -> mixed with white
-var eyeColourGene = "rr"
+export var eyeColourGene = "rr"
 #same rules as above
 
 #Specific atributes from the alleles
@@ -75,26 +75,28 @@ func inherit(firstParent, secondParent):
 	#Colours - mix genes from the parents and then, based on genes mix with basic colour or not
 	temp_P1 = firstParent.getBodyColour()
 	temp_P2 = secondParent.getBodyColour()
-	var mixedColour = temp_P1.blend(temp_P2)
+	var mixedColour = Color("#c72424")
+	mixedColour = (temp_P1 + temp_P2)/ 2
+	
 	setBodyColourGene(String(firstParent.getBodyColourGene()[randi()% len(firstParent.getBodyColourGene())] + secondParent.getBodyColourGene()[randi()% len(secondParent.getBodyColourGene())]))
 	if ( (getBodyColourGene()[0].to_lower() == getBodyColourGene()[1].to_lower()) 
-	|| (getBodyColourGene()[0].isRecessive() 
-	&& getBodyColourGene()[1].isRecessive())):
+	|| (isRecessive(getBodyColourGene()[0])
+	&& isRecessive(getBodyColourGene()[1]))):
 	#they are the same group or they are both recessive. Mixed Colour is unchanged.
 		print("No change");
-	elif (((getBodyColourGene()[0].isRecessive())
-	&& !getBodyColourGene()[1].isRecessive()) 
-	||  (!getBodyColourGene()[0].isRecessive() 
-	&& getBodyColourGene()[1].isRecessive())):
+	elif (((isRecessive(getBodyColourGene()[0]))
+	&& !isRecessive(getBodyColourGene()[1])) 
+	||  (!isRecessive(getBodyColourGene()[0]) 
+	&& isRecessive(getBodyColourGene()[1]))):
 	#if diff + hetero blend with dominant colour
 		var tempDominant = getDominant(getBodyColourGene()[0], getBodyColourGene()[1])
 		var tempDominantColour = colourGeneDictionary[tempDominant]
-		mixedColour = mixedColour.blend(tempDominantColour)
+		mixedColour = (mixedColour + tempDominantColour )/ 2
 	else:
 	#if diff + homo dom, check more dominant colour, blend
 		var tempDominant = getHierarchyDominant(getBodyColourGene()[0], getBodyColourGene()[1])
 		var tempDominantColour = colourGeneDictionary[tempDominant]
-		mixedColour = mixedColour.blend(tempDominantColour)
+		mixedColour = (mixedColour + tempDominantColour)/2
 	setBodyColourValue(mixedColour)
 
 func isRecessive(data):

@@ -3,6 +3,7 @@ extends Control
 var Slime = null
 
 signal dayEnds
+signal SlimeWindow
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,3 +47,11 @@ func _on_ExitButton_pressed():
 
 func _on_ConfirmSleep_confirmed():
 	emit_signal("dayEnds")
+
+
+func SlimeWindow():
+	print("D")
+	self.visible = true
+	#Slime = slime
+	$SlimeOptionsPopUp.popup_centered_ratio(0.2)
+

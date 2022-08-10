@@ -33,6 +33,8 @@ func _on_CanvasForPopups_dayEnds():
 	
 func save():
 	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
 		"node" : "WorldManager",
 	}
 	return save_dict

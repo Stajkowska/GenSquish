@@ -11,8 +11,7 @@
 [ext_resource path="res://Resources/Scripts/GeneManager.gd" type="Script" id=9]
 [ext_resource path="res://Resources/Scripts/SaveGameManager.gd" type="Script" id=13]
 
-[sub_resource type="Animation" id=1]
-resource_name = "DayNightCycle"
+[sub_resource type="Animation" id=30]
 length = 24.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -43,7 +42,7 @@ tracks/0/keys = {
 "values": [ Color( 0.133333, 0.12549, 0.176471, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=31]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
@@ -66,6 +65,7 @@ tracks/0/keys = {
 script = ExtResource( 13 )
 
 [node name="GeneManager" type="Node2D" parent="."]
+position = Vector2( -56, -40 )
 script = ExtResource( 9 )
 
 [node name="Background" type="Node" parent="."]
@@ -120,8 +120,7 @@ texture = ExtResource( 1 )
 [node name="YSort" type="YSort" parent="Background"]
 
 [node name="Player" parent="Background/YSort" instance=ExtResource( 2 )]
-position = Vector2( 88, 336 )
-scale = Vector2( 2.3, 2.3 )
+position = Vector2( 448, 272 )
 
 [node name="Camera2D" type="Camera2D" parent="Background/YSort/Player"]
 current = true
@@ -136,25 +135,25 @@ smoothing_enabled = true
 
 [node name="Slimes" type="YSort" parent="Background/YSort"]
 
-[node name="Slime1" parent="Background/YSort/Slimes" instance=ExtResource( 3 )]
-position = Vector2( 664, 248 )
-scale = Vector2( 3, 3 )
+[node name="Slime" parent="Background/YSort/Slimes" groups=["Interactable"] instance=ExtResource( 3 )]
+position = Vector2( 568, 232 )
+scale = Vector2( 2, 2 )
 
-[node name="Slime2" parent="Background/YSort/Slimes" instance=ExtResource( 3 )]
-position = Vector2( 472, 312 )
-scale = Vector2( 3, 3 )
+[node name="Slime2" parent="Background/YSort/Slimes" groups=["Interactable"] instance=ExtResource( 3 )]
+position = Vector2( 544, 272 )
+scale = Vector2( 2, 2 )
 
 [node name="UnMovables" type="Node2D" parent="Background/YSort"]
 
 [node name="BedSheet" parent="Background/YSort/UnMovables" instance=ExtResource( 4 )]
-position = Vector2( 213, 537 )
+position = Vector2( 216, 536 )
 
 [node name="Interactables" type="Node2D" parent="Background/YSort"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 40, 580, 202, 580, 203, 550, 191, 550, 190, 527, 213, 527, 236, 527, 236, 473, 190, 473, 190, 493, 146, 493, 146, 484, 115, 484, 114, 353, 168, 353, 168, 332, 325, 333, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 1, 138, 1, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 54, 484, 40, 484, 40, 559, 13, 560, 1, 560, 1, 407, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561, 39, 561 )
+polygon = PoolVector2Array( 40, 580, 202, 580, 203, 550, 191, 550, 192, 544, 200, 536, 216, 536, 240, 536, 236, 473, 190, 473, 184, 488, 168, 496, 152, 496, 146, 484, 115, 484, 114, 353, 168, 353, 168, 332, 325, 333, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 1, 138, 1, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 54, 484, 40, 484, 40, 559, 13, 560, 1, 560, 1, 407, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561, 39, 561 )
 
 [node name="DayNightCycle" type="CanvasModulate" parent="."]
 visible = false
@@ -164,9 +163,9 @@ script = ExtResource( 5 )
 [node name="ClockTimer" type="Timer" parent="DayNightCycle"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DayNightCycle"]
-anims/DayNightCycle = SubResource( 1 )
+anims/DayNightCycle = SubResource( 30 )
 anims/Fade_to_Black = SubResource( 3 )
-anims/RESET = SubResource( 2 )
+anims/RESET = SubResource( 31 )
 
 [connection signal="fadeToBlack" from="WorldManager" to="DayNightCycle" method="_on_WorldManager_fadeToBlack"]
 [connection signal="playerFaint" from="WorldManager" to="Background/YSort/Player" method="_on_WorldManager_playerFaint"]
@@ -174,6 +173,8 @@ anims/RESET = SubResource( 2 )
 [connection signal="SlimeWindow" from="Background/YSort/Player" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Player_SlimeWindow"]
 [connection signal="dayEnds" from="Background/YSort/Player/UI/CanvasForGUI" to="WorldManager" method="_on_CanvasForGUI_dayEnds"]
 [connection signal="dayEnds" from="Background/YSort/Player/UI/CanvasForPopups" to="WorldManager" method="_on_CanvasForPopups_dayEnds"]
+[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Slime_SlimeWindow"]
+[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime2" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Slime2_SlimeWindow"]
 [connection signal="body_entered" from="Background/YSort/UnMovables/BedSheet" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_BedSheet_body_entered"]
 [connection signal="body_exited" from="Background/YSort/UnMovables/BedSheet" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_BedSheet_body_exited"]
 [connection signal="timeout" from="DayNightCycle/ClockTimer" to="Background/YSort/Player/UI/CanvasForGUI" method="_on_ClockTimer_timeout"]

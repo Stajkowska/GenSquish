@@ -19,8 +19,9 @@ var movementVector = Vector2.ZERO
 var velocity = Vector2.ZERO
 var rollVector = Vector2.DOWN
 var stats = PlayerStats
-var slimeInReach = false
-var Slime = null
+var interactInReach = false
+var Interactable = null
+var InteractableArray = []
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -39,8 +40,8 @@ func die():
 	stats.points = stats.points/2
 
 func _physics_process(delta):
-	if (slimeInReach == true) && (Input.is_action_just_pressed("interact") == true) && (Slime != null):
-		emit_signal("SlimeWindow", Slime)
+	if (interactInReach == true) && (Input.is_action_just_pressed("interact") == true) && (Interactable != null):
+		Interactable.Interact()
 	match state:
 		MOVE:
 			movement(delta)
@@ -111,15 +112,17 @@ func faint():
 	animationTree.set("parameters/Idle/blend_position", Vector2(0,1))
 	
 func interactSlime(slime):
-	slimeInReach = true
-	Slime = slime
+	interactInReach = true
+	Interactable = slime
 	
 func interactSlimeLeft():
-	slimeInReach = false
-	Slime = null
+	interactInReach = false
+	Interactable = null
 	
 func save():
 	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
 		"node" : "Player",
 		"pos_x" : position.x, 
 		"pos_y" : position.y
@@ -127,5 +130,40 @@ func save():
 	return save_dict
 
 func loadData(gameData):
-	position.x = gameData.pos_x
-	position.y = gameData.pos_y
+	position.x = 168
+	position.y = 536
+
+
+func _on_InteractionRange_body_entered(body):
+	if (body.is_in_group("Interactable")):
+		if (Interactable == null):
+			interactInReach = true
+			Interactable = body
+			Interactable.ShowInteraction()
+		elif ((Interactable != null) && (Interactable.global_position.distance_to(global_position) > body.global_position.distance_to(global_position))):
+			Interactable.HideInteraction()
+			Interactable = body
+			interactInReach = true
+			Interactable.ShowInteraction()
+		InteractableArray.append(body)
+
+
+func _on_InteractionRange_body_exited(body):
+	if (body == Interactable):
+		Interactable.HideInteraction()
+		Interactable = null
+		interactInReach = false
+		InteractableArray.erase(body)
+		var temp = null
+		var distance = 1000
+		for i in InteractableArray:
+			if (i.global_position.distance_to(global_position) < distance):
+				distance = i.global_position.distance_to(global_position)
+				temp = i
+		Interactable = temp
+		if (Interactable != null):
+			interactInReach = true
+			Interactable.ShowInteraction()
+	else:
+		InteractableArray.erase(body)
+		

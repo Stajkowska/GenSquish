@@ -38,12 +38,20 @@ func loadGame():
 		print("File is empty")
 		return
 		
-	for node in get_tree().get_nodes_in_group("Persist"):
+	var saveNodes = get_tree().get_nodes_in_group("Persist")
+	for i in saveNodes:
+		i.queue_free()
+		
+	while saveGame.get_position() < saveGame.get_len():
 		var dict = {}
 		var data = saveGame.get_line()
 		var resultJSON = JSON.parse(data)
 		var dt  = resultJSON.result
-		node.loadData(dt)
+		
+		var newObject = load(dt["filename"]).instance()
+		get_node(dt["parent"]).add_child(newObject)
+		newObject.loadData(dt)
+		
 	saveGame.close()
 	print("Game loaded")
 

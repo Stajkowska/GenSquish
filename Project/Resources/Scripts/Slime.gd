@@ -31,7 +31,11 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var sprite = $Slime
 #onready var SC = $SoftCollision
 onready var WC = $WanderController
+onready var EButton = $EButton
 
+var UINode = null
+
+signal SlimeWindow
 
 enum {
 	IDLE,
@@ -45,10 +49,15 @@ enum {
 var state = IDLE
 
 func _ready():
+	UINode = get_tree().get_root().find_node("CanvasForPopups",true,false)
 	set_material(get_material().duplicate())
 	material.set_shader_param("body_color", Genes.getBodyColour())
+	scale.x	= Genes.getSizeGeneValue()
+	scale.y	= Genes.getSizeGeneValue()
 	
 func initiate(_otherSlime, _Genes):
+	add_to_group("Persist", true)
+	add_to_group("Interactable", true)
 	Genes.inherit(_otherSlime.Genes, _Genes)
 	scale.x	= Genes.getSizeGeneValue()
 	scale.y	= Genes.getSizeGeneValue()
@@ -57,7 +66,6 @@ func initiate(_otherSlime, _Genes):
 	global_position = _otherSlime.position
 	state = IDLE
 	WC.updateTarget()
-	print(WC.targetP)
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, 200*delta)
@@ -80,18 +88,13 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func checkSlimeHealth():
-	print(getFed)
-	print(isSick)
 	if (!getFed && !isSick):
 		healthStatus = "Hungry"
 		state = HUNGRY
 		isSick = true
 		maxSpeed = maxSpeed / 2
 	elif (!getFed && isSick):
-		print("Health should drop")
-		print(health)
 		health -= 10
-		print(health)
 		state = HUNGRY
 		isSick = true
 	elif (getFed && !isSick && health < maxHealth):
@@ -112,7 +115,6 @@ func idle(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, friction*delta)
 	if WC.getTime() == 0:
 		state = randomState([IDLE, WANDER])
-		print("Idle normal shuffle")
 		WC.startTimer(rand_range(1,3))
 
 func wander(delta):
@@ -121,7 +123,6 @@ func wander(delta):
 	animationState.travel("Jump")
 	if global_position.distance_to(WC.targetP) <= 1:
 		state = randomState([IDLE, WANDER])
-		print("Wander normal shuffle")
 	
 func seekPartner(delta):
 	var direction = global_position.direction_to(WC.targetP)
@@ -129,22 +130,22 @@ func seekPartner(delta):
 	animationState.travel("InLove")
 	if global_position.distance_to(WC.targetP) <= 1:
 		state = randomState([SEEK_PARTNER, IDLE_PARTNER])
-		print("Seek Partner shuffle")
-		print(state)
-	var dupa = $Detection.get_overlapping_bodies() #ogarnij to
-	if (dupa.is_in_group("Slime") && dupa.isInLove()):
-		otherSlime = dupa
+	var bodies = $Detection.get_overlapping_bodies() #ogarnij to
+	for body in bodies:
+		if (body.is_in_group("Slime") && body.isInLove()) && body != self:
+			otherSlime = body
 	if (otherSlime != null):
 		direction = global_position.direction_to(otherSlime.position)
 		velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
-		if global_position.distance_to(otherSlime.position) <= 30:
+		if global_position.distance_to(otherSlime.position) <= 50:
+			otherSlime.getInLove = false
+			getInLove = false
 			var baby = Slime.instance()
 			get_parent().add_child(baby)
 			baby.initiate(otherSlime, Genes)
+			otherSlime.state = randomState([IDLE,WANDER])
 			state = randomState([IDLE,WANDER])
 			WC.startTimer(rand_range(1,3))
-			getInLove = false
-			otherSlime.getInLove = false
 			otherSlime = null
 			
 func idlePartner(delta):
@@ -152,8 +153,6 @@ func idlePartner(delta):
 	velocity = velocity.move_toward(Vector2.ZERO, friction*delta)
 	if WC.getTime() == 0:
 		state = SEEK_PARTNER
-		print("Idle partner shuffle")
-		print(state)
 		WC.startTimer(rand_range(1,3))
 
 func hungry(delta):
@@ -179,6 +178,8 @@ func randomState(stateL):
 	
 func save():
 	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
 		"node" : "Slime",
 		"id" : get_instance_id(),
 		"pos_x" : position.x, 
@@ -198,24 +199,11 @@ func gotLovePotion():
 	if(!isSick):
 		getInLove = true
 		state = IDLE_PARTNER
-		print("Changed state to Partner Mode")
 
 func gotFood():
 	getFed = true
-
-func _on_InteractionRange_body_entered(body):
-	if body.name == "Player":
-		$EButton.visible = true
-		body.interactSlime(self)
-
-
-func _on_InteractionRange_body_exited(body):
-	if body.name == "Player":
-		$EButton.visible = false
-		body.interactSlimeLeft()
-		
+	
 func loadData(gameData):
-	print("Called loadData on slime")
 	position.x = gameData.pos_x
 	position.y = gameData.pos_y
 	healthStatus = gameData.healthStatus
@@ -229,3 +217,12 @@ func loadData(gameData):
 func isInLove():
 	return getInLove
 
+func ShowInteraction():
+	EButton.visible = true
+
+func Interact():
+	print("Działa")
+	UINode.SlimeWindow()
+
+func HideInteraction():
+	EButton.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Resources/Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://UsedAssets/Action RPG Resources/Player/Player.png" type="Texture" id=2]
@@ -602,12 +602,16 @@ graph_offset = Vector2( -16, -75 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
+[sub_resource type="CircleShape2D" id=47]
+radius = 35.0143
+
 [sub_resource type="CapsuleShape2D" id=46]
 radius = 12.1164
 height = 8.97607
 
 [node name="Player" type="KinematicBody2D" groups=["Persist"]]
 position = Vector2( 0, -2 )
+scale = Vector2( 2.3, 2.3 )
 collision_layer = 2147483650
 script = ExtResource( 1 )
 __meta__ = {
@@ -655,6 +659,14 @@ parameters/Idle/blend_position = Vector2( 0, 1 )
 parameters/Roll/blend_position = Vector2( 0, 1 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
+[node name="InteractionRange" type="Area2D" parent="."]
+position = Vector2( 0, 0.869565 )
+scale = Vector2( 0.434783, 0.434783 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
+position = Vector2( 0, -18 )
+shape = SubResource( 47 )
+
 [node name="HitBoxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -4 )
 rotation = -1.5708
@@ -671,5 +683,13 @@ position = Vector2( -0.380348, 2.95526 )
 rotation = 1.5708
 shape = SubResource( 46 )
 disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.4, 0.4 )
+smoothing_enabled = true
+
+[connection signal="body_entered" from="InteractionRange" to="." method="_on_InteractionRange_body_entered"]
+[connection signal="body_exited" from="InteractionRange" to="." method="_on_InteractionRange_body_exited"]
 
 [editable path="HitBoxPivot/SwordHitBox"]
