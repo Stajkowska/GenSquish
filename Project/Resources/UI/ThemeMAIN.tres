@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=2]
+[gd_resource type="Theme" load_steps=19 format=2]
 
 [ext_resource path="res://Resources/UI/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://Resources/UI/Godot-Fontpack-d244bf6170b399a6d4d26a0d906058ddf2dafdf1/fonts/connection_ii/ConnectionII.tres" type="DynamicFont" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Resources/UI/ButtonThemeHover.tres" type="StyleBox" id=4]
 [ext_resource path="res://Resources/UI/ButtonThemeDisabled.tres" type="StyleBox" id=5]
 [ext_resource path="res://Resources/UI/ButtonThemePressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://Resources/Art/Props/CloseTheWindow.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Art/Props/CloseTheWindowHighlight.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=22]
 size = 20
@@ -34,6 +36,18 @@ size = 20
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0.780392, 0.662745, 0.305882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0.682353, 0.513726, 0.34902, 1 )
 
 [sub_resource type="StyleBoxFlat" id=21]
 bg_color = Color( 0.71, 0.58646, 0.4544, 1 )
@@ -86,6 +100,10 @@ Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/fonts/font = SubResource( 15 )
 Label/styles/normal = null
+LineEdit/fonts/font = SubResource( 23 )
+LineEdit/icons/clear = ExtResource( 7 )
+LineEdit/styles/focus = SubResource( 24 )
+LineEdit/styles/normal = SubResource( 25 )
 MenuButton/styles/disabled = ExtResource( 5 )
 MenuButton/styles/hover = ExtResource( 4 )
 MenuButton/styles/normal = ExtResource( 3 )
@@ -97,4 +115,6 @@ RichTextLabel/fonts/mono_font = ExtResource( 2 )
 RichTextLabel/fonts/normal_font = ExtResource( 2 )
 WindowDialog/colors/title_color = Color( 1, 1, 1, 1 )
 WindowDialog/fonts/title_font = ExtResource( 2 )
+WindowDialog/icons/close = ExtResource( 7 )
+WindowDialog/icons/close_highlight = ExtResource( 8 )
 WindowDialog/styles/panel = SubResource( 20 )

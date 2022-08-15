@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/PopUps/Scripts/SleepPopUp.gd" type="Script" id=2]
+
+[node name="ConfirmSleep" type="ConfirmationDialog" groups=["PopUps"]]
+margin_right = 314.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 1, 1 )
+theme = ExtResource( 1 )
+window_title = ""
+dialog_text = "Do you want to go to sleep?"
+script = ExtResource( 2 )
+
+[connection signal="confirmed" from="." to="." method="_on_ConfirmSleep_confirmed"]
+[connection signal="hide" from="." to="." method="_on_ConfirmSleep_hide"]
+[connection signal="popup_hide" from="." to="." method="_on_ConfirmSleep_popup_hide"]

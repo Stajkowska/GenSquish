@@ -1,0 +1,306 @@
+[gd_scene load_steps=32 format=2]
+
+[ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Art/Props/Pen.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Art/Props/medicine.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Art/Props/lovePotion.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Art/Props/food.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Scenes/Slime/SlimeMaterial.tres" type="Material" id=6]
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=7]
+[ext_resource path="res://Resources/UI/PopUps/Scripts/SlimeOptionsPopUp.gd" type="Script" id=8]
+[ext_resource path="res://Resources/Art/Props/Release.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Art/Props/Gold.png" type="Texture" id=10]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 1 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 1 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 1 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 1 )
+region = Rect2( 240, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 1 )
+region = Rect2( 256, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 1 )
+region = Rect2( 272, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 384, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 400, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 1 )
+region = Rect2( 416, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 1 )
+region = Rect2( 432, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 1 )
+region = Rect2( 448, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 1 )
+region = Rect2( 464, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[node name="SlimeOptions" type="WindowDialog" groups=["PopUps"]]
+margin_right = 424.0
+margin_bottom = 216.0
+input_pass_on_modal_close_click = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 7 )
+window_title = "Slime Care"
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_right = 424.0
+margin_bottom = 184.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlimeOptionsPanel" type="Panel" parent="NinePatchRect"]
+margin_right = 424.0
+margin_bottom = 216.0
+rect_pivot_offset = Vector2( -9, 40 )
+mouse_filter = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveLPButton" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 136.0
+margin_right = 203.0
+margin_bottom = 166.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 7 )
+text = "Give Love Potion"
+icon = ExtResource( 4 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReleaseButton" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 176.0
+margin_right = 203.0
+margin_bottom = 206.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 7 )
+text = "Release Slime"
+icon = ExtResource( 9 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SellButton" type="Button" parent="NinePatchRect"]
+margin_left = 216.0
+margin_top = 176.0
+margin_right = 411.0
+margin_bottom = 206.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource( 7 )
+text = "Sell Slime"
+icon = ExtResource( 10 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveFoodButton" type="Button" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 96.0
+margin_right = 203.0
+margin_bottom = 126.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Give Food"
+icon = ExtResource( 5 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 72.0
+margin_bottom = 88.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthySlime" type="AnimatedSprite" parent="NinePatchRect/Panel"]
+material = ExtResource( 6 )
+position = Vector2( 32, 40 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 7 )
+frame = 3
+playing = true
+
+[node name="IllSlime" type="AnimatedSprite" parent="NinePatchRect/Panel"]
+visible = false
+material = ExtResource( 6 )
+position = Vector2( 32, 40 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 20 )
+frame = 3
+playing = true
+
+[node name="SlimeInLove" type="AnimatedSprite" parent="NinePatchRect/Panel"]
+visible = false
+material = ExtResource( 6 )
+position = Vector2( 32, 40 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 21 )
+frame = 2
+playing = true
+
+[node name="Status" type="Label" parent="NinePatchRect"]
+margin_left = 81.0
+margin_top = 40.0
+margin_right = 401.0
+margin_bottom = 72.0
+text = "Your slime is sick and hungry."
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="NinePatchRect"]
+margin_left = 80.0
+margin_top = 8.0
+margin_right = 134.0
+margin_bottom = 28.0
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Age" type="Label" parent="NinePatchRect"]
+margin_left = 81.0
+margin_top = 64.0
+margin_right = 297.0
+margin_bottom = 84.0
+text = "1000 days old"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GiveMedicineButton" type="Button" parent="NinePatchRect"]
+margin_left = 216.0
+margin_top = 136.0
+margin_right = 411.0
+margin_bottom = 166.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Give Medicine"
+icon = ExtResource( 3 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChangeNameButton" type="Button" parent="NinePatchRect"]
+margin_left = 216.0
+margin_top = 96.0
+margin_right = 411.0
+margin_bottom = 126.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Change Name"
+icon = ExtResource( 2 )
+clip_text = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="hide" from="." to="." method="_on_SlimeOptions_hide"]
+[connection signal="pressed" from="NinePatchRect/GiveLPButton" to="." method="_on_GiveLPButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/GiveFoodButton" to="." method="_on_GiveFoodButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/GiveMedicineButton" to="." method="_on_GiveMedicineButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/ChangeNameButton" to="." method="_on_ChangeNameButton_pressed"]

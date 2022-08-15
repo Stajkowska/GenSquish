@@ -15,8 +15,11 @@ var getFed = false
 var getInLove = false
 var isSick = false
 var getMedicine = false
-export var birth = false
+var UINode = null
+var Name = "Nameless"
+var Age = 0
 
+export var birth = false
 export var acceleration = 400
 export var maxSpeed = 50
 
@@ -33,7 +36,7 @@ onready var sprite = $Slime
 onready var WC = $WanderController
 onready var EButton = $EButton
 
-var UINode = null
+
 
 signal SlimeWindow
 
@@ -188,7 +191,9 @@ func save():
 		"health": health,
 		"getFed": getFed,
 		"getMedicine": getMedicine,
-		"isSick": isSick
+		"isSick": isSick,
+		"name": Name,
+		"age": Age
 	}
 	return save_dict
 	
@@ -212,6 +217,8 @@ func loadData(gameData):
 	isSick = gameData.isSick
 	getMedicine = gameData.getMedicine
 	health = gameData.health
+	Name = gameData.name
+	Age = gameData.age
 	checkSlimeHealth()
 	
 func isInLove():
@@ -221,8 +228,7 @@ func ShowInteraction():
 	EButton.visible = true
 
 func Interact():
-	print("Działa")
-	UINode.SlimeWindow()
+	UINode.SlimeWindow(self)
 
 func HideInteraction():
 	EButton.visible = false

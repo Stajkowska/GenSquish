@@ -122,7 +122,6 @@ func getBodyColour():
 func getSizeGene():
 	return sizeGene
 func getSizeGeneValue():
-	print(size)
 	return size
 func setSizeGeneValue(data):
 	size = data

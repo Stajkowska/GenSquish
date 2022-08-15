@@ -127,12 +127,6 @@ current = true
 zoom = Vector2( 0.4, 0.4 )
 smoothing_enabled = true
 
-[node name="UI" type="CanvasLayer" parent="Background/YSort/Player"]
-
-[node name="CanvasForGUI" parent="Background/YSort/Player/UI" instance=ExtResource( 7 )]
-
-[node name="CanvasForPopups" parent="Background/YSort/Player/UI" instance=ExtResource( 8 )]
-
 [node name="Slimes" type="YSort" parent="Background/YSort"]
 
 [node name="Slime" parent="Background/YSort/Slimes" groups=["Interactable"] instance=ExtResource( 3 )]
@@ -167,16 +161,24 @@ anims/DayNightCycle = SubResource( 30 )
 anims/Fade_to_Black = SubResource( 3 )
 anims/RESET = SubResource( 31 )
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="CanvasForGUI" parent="UI" instance=ExtResource( 7 )]
+pause_mode = 2
+
+[node name="CanvasForPopups" parent="UI" instance=ExtResource( 8 )]
+pause_mode = 2
+
 [connection signal="fadeToBlack" from="WorldManager" to="DayNightCycle" method="_on_WorldManager_fadeToBlack"]
 [connection signal="playerFaint" from="WorldManager" to="Background/YSort/Player" method="_on_WorldManager_playerFaint"]
 [connection signal="saveGame" from="WorldManager" to="SaveGameManager" method="_on_WorldManager_saveGame"]
-[connection signal="SlimeWindow" from="Background/YSort/Player" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Player_SlimeWindow"]
-[connection signal="dayEnds" from="Background/YSort/Player/UI/CanvasForGUI" to="WorldManager" method="_on_CanvasForGUI_dayEnds"]
-[connection signal="dayEnds" from="Background/YSort/Player/UI/CanvasForPopups" to="WorldManager" method="_on_CanvasForPopups_dayEnds"]
-[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Slime_SlimeWindow"]
-[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime2" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_Slime2_SlimeWindow"]
-[connection signal="body_entered" from="Background/YSort/UnMovables/BedSheet" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_BedSheet_body_entered"]
-[connection signal="body_exited" from="Background/YSort/UnMovables/BedSheet" to="Background/YSort/Player/UI/CanvasForPopups" method="_on_BedSheet_body_exited"]
-[connection signal="timeout" from="DayNightCycle/ClockTimer" to="Background/YSort/Player/UI/CanvasForGUI" method="_on_ClockTimer_timeout"]
+[connection signal="SlimeWindow" from="Background/YSort/Player" to="UI/CanvasForPopups" method="_on_Player_SlimeWindow"]
+[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime" to="UI/CanvasForPopups" method="_on_Slime_SlimeWindow"]
+[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime2" to="UI/CanvasForPopups" method="_on_Slime2_SlimeWindow"]
+[connection signal="body_entered" from="Background/YSort/UnMovables/BedSheet" to="UI/CanvasForPopups" method="_on_BedSheet_body_entered"]
+[connection signal="body_exited" from="Background/YSort/UnMovables/BedSheet" to="UI/CanvasForPopups" method="_on_BedSheet_body_exited"]
 [connection signal="timeout" from="DayNightCycle/ClockTimer" to="DayNightCycle" method="_on_ClockTimer_timeout"]
+[connection signal="timeout" from="DayNightCycle/ClockTimer" to="UI/CanvasForGUI" method="_on_ClockTimer_timeout"]
 [connection signal="animation_finished" from="DayNightCycle/AnimationPlayer" to="WorldManager" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="dayEnds" from="UI/CanvasForGUI" to="WorldManager" method="_on_CanvasForGUI_dayEnds"]
+[connection signal="dayEnds" from="UI/CanvasForPopups" to="WorldManager" method="_on_CanvasForPopups_dayEnds"]
