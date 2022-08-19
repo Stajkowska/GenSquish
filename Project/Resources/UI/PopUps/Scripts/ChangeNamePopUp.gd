@@ -13,12 +13,12 @@ func _ready():
 func _on_ChangeNameButton_pressed():
 	$SlimeOptionsPopUp.hide()
 	$ChangeNamePopUp.NamePrep()
-	$ChangeNamePopUp/ChangeName.popup_centered_ratio(0.3)
+	$ChangeNamePopUp.set_position(get_viewport_rect().size / 2 - $ChangeNamePopUp.rect_size /2 )
+	$ChangeNamePopUp.show()
 	
 func _on_NameCancelButton_pressed():
-	$ChangeNamePopUp/ChangeName.hide()
-	$SlimeOptionsPopUp/SlimeOptions.popup_centered_ratio(0.3)
-	$SlimeOptionsPopUp/SlimeOptions.updateTheSlimedata()
+	UINode.ShowSlimeOptions()
+	self.hide()
 
 func _on_NameAcceptButton_pressed():
 	Slime.Name = $NinePatchRect/ChangeNameLine.text

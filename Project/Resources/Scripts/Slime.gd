@@ -36,10 +36,6 @@ onready var sprite = $Slime
 onready var WC = $WanderController
 onready var EButton = $EButton
 
-
-
-signal SlimeWindow
-
 enum {
 	IDLE,
 	WANDER,
@@ -107,11 +103,12 @@ func checkSlimeHealth():
 		maxSpeed = maxSpeed *2
 	getFed = false
 	getMedicine = false
-	if (health == 0):
+	if (health <= 0):
 		death()
 	
 func death():
 	print("The Slime should die now")
+	queue_free()
 	
 func idle(delta):
 	animationState.travel("Idle")

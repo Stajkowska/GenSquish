@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/PopUps/Scripts/ConfirmationDialog.gd" type="Script" id=2]
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" groups=["PopUp"]]
+margin_right = 280.0
+margin_bottom = 97.0
+theme = ExtResource( 1 )
+dialog_text = "Do you want to give love potion to all slimes?"
+dialog_autowrap = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="confirmed" from="." to="." method="_on_ConfirmationDialog_confirmed"]
+[connection signal="hide" from="." to="." method="_on_ConfirmationDialog_hide"]

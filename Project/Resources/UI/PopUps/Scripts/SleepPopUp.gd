@@ -19,6 +19,5 @@ func _on_ConfirmSleep_popup_hide():
 	UINode.hideSelf()
 	
 
-
 func _on_ConfirmSleep_hide():
 	UINode.hideSelf()

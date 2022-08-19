@@ -5,7 +5,6 @@ const maxSpeed = 130
 const acceleration = 500
 const rollSpeed = 150
 
-signal SlimeWindow
 
 enum {
 	MOVE,

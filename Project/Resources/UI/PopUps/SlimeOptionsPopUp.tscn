@@ -217,7 +217,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 7 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="IllSlime" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -226,7 +226,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 20 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="SlimeInLove" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -235,7 +235,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 21 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Status" type="Label" parent="NinePatchRect"]
@@ -299,8 +299,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="hide" from="." to="." method="_on_SlimeOptions_hide"]
 [connection signal="pressed" from="NinePatchRect/GiveLPButton" to="." method="_on_GiveLPButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/ReleaseButton" to="." method="_on_ReleaseButton_pressed"]
+[connection signal="pressed" from="NinePatchRect/SellButton" to="." method="_on_SellButton_pressed"]
 [connection signal="pressed" from="NinePatchRect/GiveFoodButton" to="." method="_on_GiveFoodButton_pressed"]
 [connection signal="pressed" from="NinePatchRect/GiveMedicineButton" to="." method="_on_GiveMedicineButton_pressed"]
 [connection signal="pressed" from="NinePatchRect/ChangeNameButton" to="." method="_on_ChangeNameButton_pressed"]

@@ -1,8 +1,13 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Resources/Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/PopUps/SlimeOptionsPopUp.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/UI/PopUps/SleepPopUp.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/UI/PopUps/PriceSetPopUp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Resources/UI/PopUps/ConfirmationDialog.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/UI/PopUps/Popup.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/UI/PopUps/WaterPopUp.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/UI/PopUps/ShopPopUp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/UI/PopUps/ChangeNamePopUp.tscn" type="PackedScene" id=9]
 
 [node name="CanvasForPopups" type="Control"]
@@ -35,9 +40,40 @@ margin_top = 104.0
 margin_right = 321.0
 margin_bottom = 288.0
 
+[node name="PriceSetPopUp" parent="." groups=["PopUps"] instance=ExtResource( 4 )]
+
+[node name="ConfirmationDialog" parent="." groups=["PopUps"] instance=ExtResource( 5 )]
+
+[node name="Popup" parent="." instance=ExtResource( 6 )]
+
+[node name="WaterPopUp" parent="." groups=["PopUps"] instance=ExtResource( 7 )]
+margin_left = -64.0
+margin_top = 312.0
+margin_right = 160.0
+margin_bottom = 408.0
+
+[node name="TutorialPopUp" type="WindowDialog" parent="."]
+margin_right = 48.0
+margin_bottom = 40.0
+
+[node name="ShopPopUp" parent="." groups=["PopUps"] instance=ExtResource( 8 )]
+
+[node name="WindowDialog" type="WindowDialog" parent="."]
+margin_right = 48.0
+margin_bottom = 40.0
+
 [connection signal="visibility_changed" from="." to="." method="_on_CanvasForPopups_visibility_changed"]
 [connection signal="about_to_show" from="SleepPopUp" to="." method="_on_SleepPopUp_about_to_show"]
 [connection signal="about_to_show" from="SlimeOptionsPopUp" to="." method="_on_SlimeOptionsPopUp_about_to_show"]
 [connection signal="hide" from="SlimeOptionsPopUp" to="." method="_on_SlimeOptionsPopUp_hide"]
 [connection signal="about_to_show" from="ChangeNamePopUp" to="." method="_on_ChangeNamePopUp_about_to_show"]
 [connection signal="hide" from="ChangeNamePopUp" to="." method="_on_ChangeNamePopUp_hide"]
+[connection signal="about_to_show" from="PriceSetPopUp" to="." method="_on_PriceSetPopUp_about_to_show"]
+[connection signal="hide" from="PriceSetPopUp" to="." method="_on_PriceSetPopUp_hide"]
+[connection signal="about_to_show" from="ConfirmationDialog" to="." method="_on_ConfirmationDialog_about_to_show"]
+[connection signal="about_to_show" from="Popup" to="." method="_on_Popup_about_to_show"]
+[connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
+[connection signal="about_to_show" from="WaterPopUp" to="." method="_on_WaterPopUp_about_to_show"]
+[connection signal="hide" from="WaterPopUp" to="." method="_on_WaterPopUp_hide"]
+[connection signal="about_to_show" from="ShopPopUp" to="." method="_on_ShopPopUp_about_to_show"]
+[connection signal="hide" from="ShopPopUp" to="." method="_on_ShopPopUp_hide"]

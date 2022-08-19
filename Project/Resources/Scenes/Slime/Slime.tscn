@@ -10,7 +10,7 @@
 [ext_resource path="res://Resources/Scripts/Slime.gd" type="Script" id=8]
 [ext_resource path="res://Resources/Scenes/Enemies/WanderController.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Resources/Sources/Action RPG Resources/Shadows/SmallShadow.png" type="Texture" id=10]
-[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=11]
+[ext_resource path="res://Resources/UI/EButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Resources/Scenes/Slime/GeneManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/Scenes/Slime/SlimeMaterial.tres" type="Material" id=13]
 
@@ -149,26 +149,4 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 11 )
 
-[node name="EButton" type="Panel" parent="."]
-visible = false
-margin_left = -4.0
-margin_top = -15.0
-margin_right = 36.0
-margin_bottom = 25.0
-rect_scale = Vector2( 0.2, 0.2 )
-theme = ExtResource( 11 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="EButton"]
-margin_left = 12.0
-margin_top = 8.0
-margin_right = 62.0
-margin_bottom = 38.0
-rect_scale = Vector2( 1.4, 1.4 )
-theme = ExtResource( 11 )
-text = "E"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="EButton" parent="." instance=ExtResource( 11 )]

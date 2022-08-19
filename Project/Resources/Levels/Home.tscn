@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Resources/Maps/home.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,7 +9,18 @@
 [ext_resource path="res://Resources/Scenes/Player/CanvasForGUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Scenes/Player/CanvasForPopups.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Scripts/GeneManager.gd" type="Script" id=9]
+[ext_resource path="res://Resources/Scripts/MarketManager.gd" type="Script" id=10]
+[ext_resource path="res://Resources/Scenes/Environment/FoodTrough.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Resources/Scenes/Environment/WaterTrough.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/Scripts/SaveGameManager.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Scenes/Environment/HowToPlayBook.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Resources/Scenes/Environment/RecordsBook.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Resources/Scenes/Environment/FoodMagazine.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Resources/Scenes/Environment/LPMagazine.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Resources/Scenes/Environment/MedicineMagazine.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Resources/Art/Props/table.png" type="Texture" id=19]
+[ext_resource path="res://Resources/Scenes/Environment/Computer.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Resources/Scenes/Environment/Library.tscn" type="PackedScene" id=21]
 
 [sub_resource type="Animation" id=30]
 length = 24.0
@@ -67,6 +78,9 @@ script = ExtResource( 13 )
 [node name="GeneManager" type="Node2D" parent="."]
 position = Vector2( -56, -40 )
 script = ExtResource( 9 )
+
+[node name="MarketManager" type="Node2D" parent="." groups=["Persist"]]
+script = ExtResource( 10 )
 
 [node name="Background" type="Node" parent="."]
 
@@ -137,17 +151,58 @@ scale = Vector2( 2, 2 )
 position = Vector2( 544, 272 )
 scale = Vector2( 2, 2 )
 
+[node name="FoodTrough" parent="Background/YSort" instance=ExtResource( 11 )]
+position = Vector2( 478, 142 )
+scale = Vector2( 3, 3 )
+
+[node name="WaterTrough" parent="Background/YSort" groups=["Interactable"] instance=ExtResource( 12 )]
+position = Vector2( 614, 142 )
+scale = Vector2( 3, 3 )
+
 [node name="UnMovables" type="Node2D" parent="Background/YSort"]
 
 [node name="BedSheet" parent="Background/YSort/UnMovables" instance=ExtResource( 4 )]
 position = Vector2( 216, 536 )
 
-[node name="Interactables" type="Node2D" parent="Background/YSort"]
+[node name="Interactables" type="Node2D" parent="Background"]
+
+[node name="TableSprite" type="Sprite" parent="Background/Interactables"]
+position = Vector2( 246, 336 )
+scale = Vector2( 2.632, 2.6 )
+texture = ExtResource( 19 )
+
+[node name="HowToPlayBook" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 14 )]
+position = Vector2( 166, 482 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="RecordsBook" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 15 )]
+position = Vector2( 30, 487 )
+scale = Vector2( 2.8, 2.8 )
+
+[node name="FoodMagazine" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 16 )]
+position = Vector2( 191, 332 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="LPMagazine" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 17 )]
+position = Vector2( 241, 329 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="MedicineMagazine" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 18 )]
+position = Vector2( 289, 331 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="Library" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 21 )]
+position = Vector2( 74, 124 )
+scale = Vector2( 2.7, 2.7 )
+
+[node name="Computer" parent="Background/Interactables" groups=["Interactable"] instance=ExtResource( 20 )]
+position = Vector2( 269, 89 )
+scale = Vector2( 2.7, 2.7 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 40, 580, 202, 580, 203, 550, 191, 550, 192, 544, 200, 536, 216, 536, 240, 536, 236, 473, 190, 473, 184, 488, 168, 496, 152, 496, 146, 484, 115, 484, 114, 353, 168, 353, 168, 332, 325, 333, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 1, 138, 1, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 54, 484, 40, 484, 40, 559, 13, 560, 1, 560, 1, 407, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561, 39, 561 )
+polygon = PoolVector2Array( 40, 580, 202, 580, 203, 550, 191, 550, 192, 544, 200, 536, 216, 536, 240, 536, 236, 473, 190, 473, 184, 488, 168, 496, 152, 496, 146, 484, 115, 484, 114, 353, 168, 353, 168, 328, 324, 329, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 1, 138, 1, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 54, 484, 40, 484, 40, 559, 13, 560, 1, 560, 1, 407, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561, 39, 561 )
 
 [node name="DayNightCycle" type="CanvasModulate" parent="."]
 visible = false
@@ -172,9 +227,6 @@ pause_mode = 2
 [connection signal="fadeToBlack" from="WorldManager" to="DayNightCycle" method="_on_WorldManager_fadeToBlack"]
 [connection signal="playerFaint" from="WorldManager" to="Background/YSort/Player" method="_on_WorldManager_playerFaint"]
 [connection signal="saveGame" from="WorldManager" to="SaveGameManager" method="_on_WorldManager_saveGame"]
-[connection signal="SlimeWindow" from="Background/YSort/Player" to="UI/CanvasForPopups" method="_on_Player_SlimeWindow"]
-[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime" to="UI/CanvasForPopups" method="_on_Slime_SlimeWindow"]
-[connection signal="SlimeWindow" from="Background/YSort/Slimes/Slime2" to="UI/CanvasForPopups" method="_on_Slime2_SlimeWindow"]
 [connection signal="body_entered" from="Background/YSort/UnMovables/BedSheet" to="UI/CanvasForPopups" method="_on_BedSheet_body_entered"]
 [connection signal="body_exited" from="Background/YSort/UnMovables/BedSheet" to="UI/CanvasForPopups" method="_on_BedSheet_body_exited"]
 [connection signal="timeout" from="DayNightCycle/ClockTimer" to="DayNightCycle" method="_on_ClockTimer_timeout"]
