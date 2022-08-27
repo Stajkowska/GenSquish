@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Scenes/Enemies/Stats.tscn" type="PackedScene" id=2]
@@ -13,12 +13,17 @@
 [ext_resource path="res://Resources/UI/EButton.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Resources/Scenes/Slime/GeneManager.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/Scenes/Slime/SlimeMaterial.tres" type="Material" id=13]
+[ext_resource path="res://Resources/Scenes/Enemies/SoftCollision.gd" type="Script" id=14]
 
 [sub_resource type="CapsuleShape2D" id=27]
+radius = 5.0
 height = 0.0
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 52.0
+
+[sub_resource type="CircleShape2D" id=28]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 3.0
@@ -102,14 +107,11 @@ position = Vector2( 0, 2 )
 [node name="Stats" parent="." instance=ExtResource( 2 )]
 
 [node name="InteractionRange" type="Area2D" parent="."]
-visible = false
 position = Vector2( 0, 2 )
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionRange"]
-visible = false
-position = Vector2( 0, -1 )
 shape = SubResource( 27 )
 
 [node name="Detection" type="Area2D" parent="."]
@@ -122,6 +124,13 @@ shape = SubResource( 1 )
 [node name="SmallShadow" type="Sprite" parent="."]
 position = Vector2( 0, 6 )
 texture = ExtResource( 10 )
+
+[node name="SoftCollision" type="Area2D" parent="."]
+position = Vector2( 0, 2 )
+script = ExtResource( 14 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision"]
+shape = SubResource( 28 )
 
 [node name="Slime" type="Sprite" parent="."]
 use_parent_material = true

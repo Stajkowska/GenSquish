@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Scripts/UI.gd" type="Script" id=1]
 [ext_resource path="res://Resources/UI/PopUps/SlimeOptionsPopUp.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Resources/UI/PopUps/WaterPopUp.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/UI/PopUps/ShopPopUp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/UI/PopUps/ChangeNamePopUp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Resources/UI/PopUps/TutorialPopUp.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Resources/UI/PopUps/ScenariosPopUp.tscn" type="PackedScene" id=11]
 
 [node name="CanvasForPopups" type="Control"]
 visible = false
@@ -52,15 +54,12 @@ margin_top = 312.0
 margin_right = 160.0
 margin_bottom = 408.0
 
-[node name="TutorialPopUp" type="WindowDialog" parent="."]
-margin_right = 48.0
-margin_bottom = 40.0
+[node name="TutorialPopUp" parent="." groups=["PopUps"] instance=ExtResource( 10 )]
 
 [node name="ShopPopUp" parent="." groups=["PopUps"] instance=ExtResource( 8 )]
 
-[node name="WindowDialog" type="WindowDialog" parent="."]
-margin_right = 48.0
-margin_bottom = 40.0
+[node name="ScenariosPopUp" parent="." groups=["PopUps"] instance=ExtResource( 11 )]
+visible = true
 
 [connection signal="visibility_changed" from="." to="." method="_on_CanvasForPopups_visibility_changed"]
 [connection signal="about_to_show" from="SleepPopUp" to="." method="_on_SleepPopUp_about_to_show"]
@@ -75,5 +74,9 @@ margin_bottom = 40.0
 [connection signal="hide" from="Popup" to="." method="_on_Popup_hide"]
 [connection signal="about_to_show" from="WaterPopUp" to="." method="_on_WaterPopUp_about_to_show"]
 [connection signal="hide" from="WaterPopUp" to="." method="_on_WaterPopUp_hide"]
+[connection signal="about_to_show" from="TutorialPopUp" to="." method="_on_TutorialPopUp_about_to_show"]
+[connection signal="hide" from="TutorialPopUp" to="." method="_on_TutorialPopUp_hide"]
 [connection signal="about_to_show" from="ShopPopUp" to="." method="_on_ShopPopUp_about_to_show"]
 [connection signal="hide" from="ShopPopUp" to="." method="_on_ShopPopUp_hide"]
+[connection signal="about_to_show" from="ScenariosPopUp" to="." method="_on_ScenariosPopUp_about_to_show"]
+[connection signal="hide" from="ScenariosPopUp" to="." method="_on_ScenariosPopUp_hide"]

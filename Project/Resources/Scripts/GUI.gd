@@ -31,3 +31,5 @@ func _on_ClockTimer_timeout():
 		$TimePanel/TimeLabel.text = String(hour) + ":" + String(minute) + "0"
 	
 
+func UpdateMoney(cost):
+	$MoneyPanel/MoneyLabel.text = str(cost) + "$"

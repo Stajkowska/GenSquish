@@ -56,6 +56,71 @@ func _ready():
 
 func printS():
 	print("D")
+	
+func getRandomSlimeGenes():
+	var rng = RandomNumberGenerator.new()
+	rng.randomize()
+	var a = sizeGeneDictionary.keys()
+	var temp = a[randi() % a.size()]
+	setSizeGene(temp)
+	setSizeGeneValue(sizeGeneDictionary[sizeGene])
+	
+	a = colourGeneDictionary.keys()
+	var gen1 = a[randi() % a.size()]
+	var b = colourGeneDictionary.keys()
+	var gen2 = b[randi() % b.size()]
+	var c = rng.randi_range(0,3)
+	# 0 - both recessive
+	# 1 - both dom
+	# 2 - mixed (first dom)
+	# 3 - mixed (second dom)
+	match c:
+		0:
+			gen1 = gen1.to_lower()
+			gen2 = gen2.to_lower()
+		1:
+			pass
+		2:
+			gen2 = gen2.to_lower()
+		3:
+			gen1 = gen1.to_lower()
+	setBodyColourGene(gen1 + gen2)
+	var mixedColour = Color("#c72424")
+	if ( (getBodyColourGene()[0].to_lower() == getBodyColourGene()[1].to_lower()) 
+	|| (isRecessive(getBodyColourGene()[0])
+	&& isRecessive(getBodyColourGene()[1]))):
+		#they are the same group or they are both recessive. Mix both colours
+		var tempC1 = colourGeneDictionary[getBodyColourGene()[0].to_upper()]
+		var tempC2 = colourGeneDictionary[getBodyColourGene()[1].to_upper()]
+		mixedColour = (tempC1+ tempC2)/ 2
+	elif (((isRecessive(getBodyColourGene()[0]))
+	&& !isRecessive(getBodyColourGene()[1])) 
+	||  (!isRecessive(getBodyColourGene()[0]) 
+	&& isRecessive(getBodyColourGene()[1]))):
+		#if diff + hetero blend with dominant colour
+		var tempC1 = colourGeneDictionary[getBodyColourGene()[0].to_upper()]
+		var tempC2 = colourGeneDictionary[getBodyColourGene()[1].to_upper()]
+		mixedColour = (tempC1+ tempC2)/ 2
+		var tempDominant = getDominant(getBodyColourGene()[0], getBodyColourGene()[1])
+		var tempDominantColour = colourGeneDictionary[tempDominant]
+		mixedColour = (mixedColour + tempDominantColour )/ 2
+	else:
+		#if diff + homo dom, check more dominant colour, blend
+		var tempC1 = colourGeneDictionary[getBodyColourGene()[0].to_upper()]
+		var tempC2 = colourGeneDictionary[getBodyColourGene()[1].to_upper()]
+		mixedColour = (tempC1+ tempC2)/ 2
+		var tempDominant = getHierarchyDominant(getBodyColourGene()[0], getBodyColourGene()[1])
+		var tempDominantColour = colourGeneDictionary[tempDominant]
+		mixedColour = (mixedColour + tempDominantColour)/2
+	setBodyColourValue(mixedColour)
+	
+func setGenes(_Genes):
+	setSizeGene(_Genes.getSizeGene())
+	setBodyColourGene(_Genes.getBodyColourGene())
+	setEyeColourGene(_Genes.getEyeColourGene())
+	
+	setSizeGeneValue(_Genes.getSizeGeneValue())
+	setBodyColourValue(_Genes.getBodyColour())
 
 func inherit(firstParent, secondParent):
 	#Genes are selected randomly from each parent and given to the baby
@@ -104,7 +169,7 @@ func isRecessive(data):
 		return true
 	return false;
 func getDominant(data1, data2):
-	if (!data1.isRecessive()):
+	if (!isRecessive(data1)):
 		return data1
 	else:
 		return data2

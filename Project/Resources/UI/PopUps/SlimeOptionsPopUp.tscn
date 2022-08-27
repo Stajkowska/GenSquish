@@ -217,7 +217,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 7 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="IllSlime" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -226,7 +226,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 20 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="SlimeInLove" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -235,7 +235,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 21 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Status" type="Label" parent="NinePatchRect"]

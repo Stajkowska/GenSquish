@@ -143,6 +143,7 @@ func Confirmed(result, aim):
 					i.gotLovePotion()
 				Magazine.RemoveLP(cost)
 				ShowPopUp("All your slimes got the love potion now!")
+				
 
 
 #Show Pop Up Window
@@ -161,11 +162,15 @@ func WaterWindow():
 
 #Tutorial
 func ShowTutorial():
-	print("Tutorial")
+	self.show()
+	$TutorialPopUp.set_position(get_viewport_rect().size / 2 - $TutorialPopUp.rect_size /2 )
+	$TutorialPopUp.show()
 	
 #Shop
 func ShowShop():
-	print("SHOP")
+	self.show()
+	$ShopPopUp.set_position(get_viewport_rect().size / 2 - $ShopPopUp.rect_size /2 )
+	$ShopPopUp.show()
 	
 #Scenarios
 func ShowScenarios():
@@ -203,4 +208,12 @@ func _on_WaterPopUp_hide():
 func _on_ShopPopUp_about_to_show():
 	self.show()
 func _on_ShopPopUp_hide():
+	hideSelf()
+func _on_TutorialPopUp_about_to_show():
+	self.show()
+func _on_TutorialPopUp_hide():
+	hideSelf()
+func _on_ScenariosPopUp_about_to_show():
+	self.show()
+func _on_ScenariosPopUp_hide():
 	hideSelf()

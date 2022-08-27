@@ -35,6 +35,7 @@ onready var sprite = $Slime
 #onready var SC = $SoftCollision
 onready var WC = $WanderController
 onready var EButton = $EButton
+onready var SC = $SoftCollision
 
 enum {
 	IDLE,
@@ -53,6 +54,18 @@ func _ready():
 	material.set_shader_param("body_color", Genes.getBodyColour())
 	scale.x	= Genes.getSizeGeneValue()
 	scale.y	= Genes.getSizeGeneValue()
+
+func spawnSlime(_Genes):
+	add_to_group("Persist", true)
+	add_to_group("Interactable", true)
+	Genes.setGenes(_Genes)
+	scale.x	= Genes.getSizeGeneValue()
+	scale.y	= Genes.getSizeGeneValue()
+	material.set_shader_param("body_color", Genes.getBodyColour())
+	var spawnPoint = get_parent()
+	position = spawnPoint.position
+	global_position = spawnPoint.position
+	state = IDLE
 	
 func initiate(_otherSlime, _Genes):
 	add_to_group("Persist", true)
@@ -67,8 +80,9 @@ func initiate(_otherSlime, _Genes):
 	WC.updateTarget()
 
 func _physics_process(delta):
-	knockback = knockback.move_toward(Vector2.ZERO, 200*delta)
+	knockback = knockback.move_toward(Vector2.ZERO, delta)
 	knockback = move_and_slide(knockback)
+	
 	animationState.travel("Idle")
 	match state:
 		IDLE:
@@ -84,6 +98,8 @@ func _physics_process(delta):
 		HUNGRY_WANDER:
 			hungryWander(delta)
 	sprite.flip_h = velocity.x < 0
+	if SC.isColliding():
+		velocity += SC.getPushed() * delta * 90
 	velocity = move_and_slide(velocity)
 
 func checkSlimeHealth():
@@ -229,3 +245,5 @@ func Interact():
 
 func HideInteraction():
 	EButton.visible = false
+	
+

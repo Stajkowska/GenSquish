@@ -38,6 +38,9 @@ margin_top = 8.0
 margin_right = 140.0
 margin_bottom = 28.0
 text = "0$"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimePanel" type="Panel" parent="."]
 margin_left = 452.0

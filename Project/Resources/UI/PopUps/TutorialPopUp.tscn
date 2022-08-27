@@ -1,0 +1,812 @@
+[gd_scene load_steps=38 format=2]
+
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=2]
+[ext_resource path="res://Resources/UI/EButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Resources/Scenes/Slime/SlimeMaterial.tres" type="Material" id=4]
+[ext_resource path="res://Resources/Scenes/Environment/FoodTrough.gd" type="Script" id=5]
+[ext_resource path="res://Resources/Art/UI/SlimeGUI.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Art/Props/food.png" type="Texture" id=7]
+[ext_resource path="res://Resources/Art/Props/medicine.png" type="Texture" id=8]
+[ext_resource path="res://Resources/Art/Props/lovePotion.png" type="Texture" id=9]
+[ext_resource path="res://Resources/Art/UI/SlimeJars.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Art/UI/ComputerMarket.png" type="Texture" id=11]
+[ext_resource path="res://Resources/UI/PopUps/Scripts/TutorialPopUp.gd" type="Script" id=12]
+[ext_resource path="res://Resources/Art/Props/foodBucket.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Art/UI/BuyJars.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Art/UI/BuySlimes.png" type="Texture" id=15]
+[ext_resource path="res://Resources/Art/UI/SellSlime.png" type="Texture" id=16]
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 2 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 2 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 2 )
+region = Rect2( 48, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 2 )
+region = Rect2( 64, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 2 )
+region = Rect2( 80, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=28]
+animations = [ {
+"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 2 )
+region = Rect2( 192, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 2 )
+region = Rect2( 208, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 2 )
+region = Rect2( 224, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 2 )
+region = Rect2( 240, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 2 )
+region = Rect2( 256, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 2 )
+region = Rect2( 272, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 2 )
+region = Rect2( 384, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 2 )
+region = Rect2( 400, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 2 )
+region = Rect2( 416, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 2 )
+region = Rect2( 432, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 2 )
+region = Rect2( 448, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 2 )
+region = Rect2( 464, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=30]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.02
+} ]
+
+[node name="TutorialPopUp" type="WindowDialog"]
+visible = true
+margin_right = 496.0
+margin_bottom = 328.0
+theme = ExtResource( 1 )
+window_title = "How to play?"
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Page1" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Page1"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel2" type="Panel" parent="Page1"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Page1"]
+margin_left = 48.0
+margin_top = 80.0
+margin_right = 78.0
+margin_bottom = 110.0
+text = "W"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Page1"]
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 46.0
+margin_bottom = 142.0
+text = "A"
+
+[node name="Button3" type="Button" parent="Page1"]
+margin_left = 48.0
+margin_top = 112.0
+margin_right = 78.0
+margin_bottom = 142.0
+text = "S"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Page1"]
+margin_left = 80.0
+margin_top = 112.0
+margin_right = 110.0
+margin_bottom = 142.0
+text = "D"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="Page1"]
+margin_left = 16.0
+margin_top = 216.0
+margin_right = 86.0
+margin_bottom = 246.0
+text = "Space"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Page1"]
+margin_left = 128.0
+margin_top = 80.0
+margin_right = 240.0
+margin_bottom = 146.0
+text = "Press 
+W, A, S, D to move."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="Page1"]
+margin_left = 104.0
+margin_top = 208.0
+margin_right = 240.0
+margin_bottom = 251.0
+text = "Use 
+Space to roll."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="Page1"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Movement"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label4" type="Label" parent="Page1"]
+margin_left = 256.0
+margin_top = 16.0
+margin_right = 496.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Interaction"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HealthySlime" type="AnimatedSprite" parent="Page1"]
+material = ExtResource( 4 )
+position = Vector2( 376, 216 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 28 )
+frame = 4
+playing = true
+
+[node name="EButton" parent="Page1" instance=ExtResource( 3 )]
+visible = true
+margin_left = 360.0
+margin_top = 160.0
+margin_right = 400.0
+margin_bottom = 200.0
+rect_scale = Vector2( 0.6, 0.6 )
+
+[node name="Label5" type="Label" parent="Page1"]
+margin_left = 256.0
+margin_top = 272.0
+margin_right = 480.0
+margin_bottom = 320.0
+text = "Press E to interact with objects"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FoodTrough" type="StaticBody2D" parent="Page1" groups=["Interactable"]]
+position = Vector2( 88, 246 )
+scale = Vector2( 3, 3 )
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Page1/FoodTrough"]
+position = Vector2( 94.5, -44.6667 )
+texture = ExtResource( 13 )
+
+[node name="EButton" parent="Page1/FoodTrough" instance=ExtResource( 3 )]
+visible = true
+margin_left = 90.6667
+margin_top = -60.6667
+margin_right = 130.667
+margin_bottom = -20.6667
+
+[node name="Page2" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Page2"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="Page2"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label9" type="Label" parent="Page2"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 256.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Interaction"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Page2"]
+margin_left = 272.0
+margin_top = 184.0
+margin_right = 480.0
+margin_bottom = 230.0
+text = "Press Escape to close the windows."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="Page2"]
+margin_left = 336.0
+margin_top = 128.0
+margin_right = 406.0
+margin_bottom = 158.0
+text = "Esc"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlimeGui" type="Sprite" parent="Page2"]
+position = Vector2( 120, 192 )
+scale = Vector2( 0.378205, 0.378205 )
+texture = ExtResource( 6 )
+
+[node name="Label6" type="Label" parent="Page2"]
+margin_top = 56.0
+margin_right = 240.0
+margin_bottom = 122.0
+text = "Use mouse to navigate the windows."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label8" type="Label" parent="Page2"]
+margin_left = 264.0
+margin_top = 40.0
+margin_right = 472.0
+margin_bottom = 106.0
+text = "Press the buttons to chose your desired action."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Page3" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 352, 144 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Page3"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="Page3"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Page3"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Slime Care"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Food" type="Sprite" parent="Page3"]
+position = Vector2( 32, 72 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 7 )
+
+[node name="Label9" type="Label" parent="Page3"]
+margin_left = 64.0
+margin_top = 48.0
+margin_right = 249.0
+margin_bottom = 120.0
+text = "Your slime needs to be feed once per day."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IllSlime" type="AnimatedSprite" parent="Page3"]
+material = ExtResource( 4 )
+position = Vector2( 120, 184 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 29 )
+frame = 1
+playing = true
+
+[node name="Label12" type="Label" parent="Page3"]
+margin_left = 8.0
+margin_top = 128.0
+margin_right = 249.0
+margin_bottom = 174.0
+text = "If your slime won't get food, it will fall ill."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="Page3"]
+margin_left = 256.0
+margin_top = 24.0
+margin_right = 488.0
+margin_bottom = 144.0
+text = "If you give your slime a love potion, it will try to breed with others.
+"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label16" type="Label" parent="Page3"]
+margin_left = 256.0
+margin_top = 208.0
+margin_right = 480.0
+margin_bottom = 297.0
+text = "
+Warning: You can't give the love potion to ill slimes!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Medicine" type="Sprite" parent="Page3"]
+position = Vector2( 32, 264 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 8 )
+
+[node name="Label13" type="Label" parent="Page3"]
+margin_left = 56.0
+margin_top = 232.0
+margin_right = 240.0
+margin_bottom = 298.0
+text = "You should give medicine to your ill slime."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LovePotion" type="Sprite" parent="Page3"]
+position = Vector2( 368, 168 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 9 )
+
+[node name="Page4" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel5" type="Panel" parent="Page4"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel6" type="Panel" parent="Page4"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label15" type="Label" parent="Page4"]
+margin_left = 8.0
+margin_top = 64.0
+margin_right = 240.0
+margin_bottom = 144.0
+text = "Slime will try to look for a partner, to create an offspring. "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="Page4"]
+margin_left = 248.0
+margin_top = 40.0
+margin_right = 496.0
+margin_bottom = 152.0
+text = "You can see how much slime products you have, by interacting with the jars."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="Page4"]
+margin_left = 16.0
+margin_top = 160.0
+margin_right = 240.0
+margin_bottom = 249.0
+text = "Always use the potion on two slimes for best results."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlimeInLove" type="AnimatedSprite" parent="Page4"]
+material = ExtResource( 4 )
+position = Vector2( 96, 248 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 30 )
+frame = 4
+playing = true
+
+[node name="SlimeInLove2" type="AnimatedSprite" parent="Page4"]
+material = ExtResource( 4 )
+position = Vector2( 176, 248 )
+scale = Vector2( 4.5, 4.5 )
+frames = SubResource( 30 )
+frame = 3
+playing = true
+flip_h = true
+
+[node name="SlimeJars" type="Sprite" parent="Page4"]
+position = Vector2( 376, 184 )
+scale = Vector2( 0.35, 0.35 )
+texture = ExtResource( 10 )
+
+[node name="Label12" type="Label" parent="Page4"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Slime Care"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Page5" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Page5"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="Page5"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Page5"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Market"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label13" type="Label" parent="Page5"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 114.0
+text = "You can access the market by interacting with the computer."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label14" type="Label" parent="Page5"]
+margin_left = 256.0
+margin_top = 48.0
+margin_right = 480.0
+margin_bottom = 112.0
+text = "You can buy there new slime products."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComputerMarket" type="Sprite" parent="Page5"]
+position = Vector2( 128, 208 )
+scale = Vector2( 0.461088, 0.461088 )
+texture = ExtResource( 11 )
+
+[node name="BuyJars" type="Sprite" parent="Page5"]
+position = Vector2( 368, 192 )
+scale = Vector2( 0.369963, 0.369963 )
+texture = ExtResource( 14 )
+
+[node name="Page6" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel5" type="Panel" parent="Page6"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel6" type="Panel" parent="Page6"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label15" type="Label" parent="Page6"]
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 104.0
+text = "You can buy there new slimes."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label16" type="Label" parent="Page6"]
+margin_left = 256.0
+margin_top = 24.0
+margin_right = 488.0
+margin_bottom = 136.0
+text = "If you want to sell your slime, you can select that option in it's menu."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label11" type="Label" parent="Page6"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+rect_scale = Vector2( 1.2, 1.2 )
+text = "Market"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BuySlimes" type="Sprite" parent="Page6"]
+position = Vector2( 128, 192 )
+scale = Vector2( 0.371951, 0.371951 )
+texture = ExtResource( 15 )
+
+[node name="SellSlime" type="Sprite" parent="Page6"]
+position = Vector2( 376, 208 )
+scale = Vector2( 0.67094, 0.67094 )
+texture = ExtResource( 16 )
+
+[node name="Page7" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel3" type="Panel" parent="Page7"]
+margin_right = 248.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel4" type="Panel" parent="Page7"]
+margin_left = 248.0
+margin_right = 496.0
+margin_bottom = 328.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label10" type="Label" parent="Page7"]
+margin_left = 8.0
+margin_top = 16.0
+margin_right = 248.0
+margin_bottom = 40.0
+text = "Scenarios"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label16" type="Label" parent="Page7"]
+margin_top = 48.0
+margin_right = 248.0
+margin_bottom = 168.0
+text = "You can access them by interacting with the bookcase or by pressing J."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label17" type="Label" parent="Page7"]
+margin_left = 264.0
+margin_top = 16.0
+margin_right = 488.0
+margin_bottom = 82.0
+text = "You can start a scenarios by pressing their icon."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label18" type="Label" parent="Page7"]
+margin_left = 256.0
+margin_top = 192.0
+margin_right = 488.0
+margin_bottom = 281.0
+text = "By completing a scenario you unlock more, get rewards like slimes and money."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="Button" parent="."]
+margin_left = 464.0
+margin_top = 288.0
+margin_right = 482.0
+margin_bottom = 318.0
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 288.0
+margin_right = 26.0
+margin_bottom = 318.0
+text = "<"
+
+[connection signal="hide" from="." to="." method="_on_TutorialPopUp_hide"]
+[connection signal="pressed" from="RightButton" to="." method="_on_RightButton_pressed"]
+[connection signal="pressed" from="LeftButton" to="." method="_on_LeftButton_pressed"]

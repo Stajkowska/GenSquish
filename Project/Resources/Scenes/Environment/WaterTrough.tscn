@@ -21,5 +21,6 @@ rotation = 1.56144
 shape = SubResource( 1 )
 
 [node name="EButton" parent="." instance=ExtResource( 2 )]
-margin_top = -18.0
-margin_bottom = 22.0
+visible = true
+margin_top = -13.0
+margin_bottom = 27.0
