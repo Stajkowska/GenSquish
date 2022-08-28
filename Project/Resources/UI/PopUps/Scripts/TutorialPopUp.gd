@@ -4,11 +4,11 @@ extends WindowDialog
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
-
+var PageNumber = 1
+onready var Pages = get_tree().get_nodes_in_group("Page")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,16 +17,31 @@ func _ready():
 
 
 func _on_TutorialPopUp_hide():
-	$Page1.visible = true
-	$Page2.visible = false
-	$Page3.visible = false
-	$Page4.visible = false
+	hideAll()
+	PageNumber = 1
 
+func hideAll():
+	Pages = get_tree().get_nodes_in_group("Page")
+	for i in Pages:
+		i.visible = false
+	$Page1.visible = true
+	
 
 func _on_RightButton_pressed():
-	$Page1.visible = false
-	$Page2.visible = true
-
+	PageNumber += 1
+	getPageVisible()
 
 func _on_LeftButton_pressed():
-	pass # Replace with function body.
+	PageNumber -= 1
+	getPageVisible()
+	
+func getPageVisible():
+	var page = $Page1
+	print(PageNumber)
+	if ((PageNumber > 0) && (PageNumber < 7)):
+		page = Pages[PageNumber]
+	else:
+		page = $Page1
+		PageNumber = 1
+	hideAll()
+	page.visible = true

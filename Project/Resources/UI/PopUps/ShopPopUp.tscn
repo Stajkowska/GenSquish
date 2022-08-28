@@ -503,7 +503,7 @@ material = SubResource( 31 )
 position = Vector2( 16, 16 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime1Data"]
@@ -552,7 +552,7 @@ material = SubResource( 30 )
 position = Vector2( 48, 152 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime2Data"]
@@ -598,7 +598,7 @@ material = SubResource( 32 )
 position = Vector2( 48, 96 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Sprite4" type="Sprite" parent="SlimeCenter/Slime3Data"]
@@ -649,7 +649,7 @@ material = SubResource( 33 )
 position = Vector2( 16, 16 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime4Data"]
@@ -699,7 +699,7 @@ material = SubResource( 34 )
 position = Vector2( 48, 152 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime5Data"]
@@ -746,7 +746,6 @@ material = SubResource( 35 )
 position = Vector2( 48, 96 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 1
 playing = true
 
 [node name="Sprite4" type="Sprite" parent="SlimeCenter/Slime6Data"]

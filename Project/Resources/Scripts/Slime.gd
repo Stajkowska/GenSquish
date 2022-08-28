@@ -74,10 +74,10 @@ func initiate(_otherSlime, _Genes):
 	scale.x	= Genes.getSizeGeneValue()
 	scale.y	= Genes.getSizeGeneValue()
 	material.set_shader_param("body_color", Genes.getBodyColour())
-	position = _otherSlime.position
-	global_position = _otherSlime.position
+	var spawnPoint = get_parent()
+	position = spawnPoint.position
+	global_position = spawnPoint.position
 	state = IDLE
-	WC.updateTarget()
 
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, delta)
@@ -141,7 +141,7 @@ func wander(delta):
 		state = randomState([IDLE, WANDER])
 	
 func seekPartner(delta):
-	var direction = global_position.direction_to(WC.targetP)
+	var direction = position.direction_to(WC.targetP)
 	velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
 	animationState.travel("InLove")
 	if global_position.distance_to(WC.targetP) <= 1:
@@ -151,9 +151,9 @@ func seekPartner(delta):
 		if (body.is_in_group("Slime") && body.isInLove()) && body != self:
 			otherSlime = body
 	if (otherSlime != null):
-		direction = global_position.direction_to(otherSlime.position)
+		direction = position.direction_to(otherSlime.position)
 		velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
-		if global_position.distance_to(otherSlime.position) <= 50:
+		if position.distance_to(otherSlime.position) <= 50:
 			otherSlime.getInLove = false
 			getInLove = false
 			var baby = Slime.instance()
@@ -198,8 +198,8 @@ func save():
 		"parent" : get_parent().get_path(),
 		"node" : "Slime",
 		"id" : get_instance_id(),
-		"pos_x" : position.x, 
-		"pos_y" : position.y,
+		"pos_x" : global_position.x, 
+		"pos_y" : global_position.y,
 		"healthStatus" : healthStatus,
 		"health": health,
 		"getFed": getFed,
@@ -222,8 +222,8 @@ func gotFood():
 	getFed = true
 	
 func loadData(gameData):
-	position.x = gameData.pos_x
-	position.y = gameData.pos_y
+	global_position.x = gameData.pos_x
+	global_position.y = gameData.pos_y
 	healthStatus = gameData.healthStatus
 	state = IDLE
 	getFed = gameData.getFed
@@ -246,4 +246,5 @@ func Interact():
 func HideInteraction():
 	EButton.visible = false
 	
-
+func gotSold():
+	health -= 100

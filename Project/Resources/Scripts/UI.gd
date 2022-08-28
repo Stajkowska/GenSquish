@@ -48,6 +48,7 @@ func _on_CanvasForPopups_visibility_changed():
 func hideSelf():
 	windowVisible = false
 	popNodes = get_tree().get_nodes_in_group("PopUps")
+	
 	for i in popNodes:
 		if (i.visible):
 			windowVisible = true
@@ -163,7 +164,7 @@ func WaterWindow():
 #Tutorial
 func ShowTutorial():
 	self.show()
-	$TutorialPopUp.set_position(get_viewport_rect().size / 2 - $TutorialPopUp.rect_size /2 )
+	$TutorialPopUp.set_position(get_viewport_rect().size / 2*1.2 - $TutorialPopUp.rect_size /2*1.2 )
 	$TutorialPopUp.show()
 	
 #Shop
@@ -174,7 +175,9 @@ func ShowShop():
 	
 #Scenarios
 func ShowScenarios():
-	print("Scenarios")
+	self.show()
+	$ScenariosPopUp.set_position(get_viewport_rect().size / 2 - $ScenariosPopUp.rect_size /2 )
+	$ScenariosPopUp.show()
 
 #show/hide operations
 func _on_SleepPopUp_about_to_show():

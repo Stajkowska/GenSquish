@@ -114,9 +114,9 @@ animations = [ {
 } ]
 
 [node name="TutorialPopUp" type="WindowDialog"]
-visible = true
 margin_right = 496.0
 margin_bottom = 328.0
+rect_scale = Vector2( 1.2, 1.2 )
 theme = ExtResource( 1 )
 window_title = "How to play?"
 script = ExtResource( 12 )
@@ -124,7 +124,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Page1" type="Control" parent="."]
+[node name="Page1" type="Control" parent="." groups=["Page"]]
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -248,7 +248,7 @@ material = ExtResource( 4 )
 position = Vector2( 376, 216 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="EButton" parent="Page1" instance=ExtResource( 3 )]
@@ -287,7 +287,7 @@ margin_top = -60.6667
 margin_right = 130.667
 margin_bottom = -20.6667
 
-[node name="Page2" type="Control" parent="."]
+[node name="Page2" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -345,8 +345,8 @@ __meta__ = {
 }
 
 [node name="SlimeGui" type="Sprite" parent="Page2"]
-position = Vector2( 120, 192 )
-scale = Vector2( 0.378205, 0.378205 )
+position = Vector2( 125.688, 187.25 )
+scale = Vector2( 0.440705, 0.440705 )
 texture = ExtResource( 6 )
 
 [node name="Label6" type="Label" parent="Page2"]
@@ -372,7 +372,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Page3" type="Control" parent="."]
+[node name="Page3" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -430,7 +430,7 @@ material = ExtResource( 4 )
 position = Vector2( 120, 184 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 29 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Label12" type="Label" parent="Page3"]
@@ -493,7 +493,7 @@ position = Vector2( 368, 168 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 9 )
 
-[node name="Page4" type="Control" parent="."]
+[node name="Page4" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -557,7 +557,7 @@ material = ExtResource( 4 )
 position = Vector2( 96, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="SlimeInLove2" type="AnimatedSprite" parent="Page4"]
@@ -565,7 +565,7 @@ material = ExtResource( 4 )
 position = Vector2( 176, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 3
+frame = 4
 playing = true
 flip_h = true
 
@@ -586,7 +586,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Page5" type="Control" parent="."]
+[node name="Page5" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -655,7 +655,7 @@ position = Vector2( 368, 192 )
 scale = Vector2( 0.369963, 0.369963 )
 texture = ExtResource( 14 )
 
-[node name="Page6" type="Control" parent="."]
+[node name="Page6" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -721,7 +721,7 @@ position = Vector2( 376, 208 )
 scale = Vector2( 0.67094, 0.67094 )
 texture = ExtResource( 16 )
 
-[node name="Page7" type="Control" parent="."]
+[node name="Page7" type="Control" parent="." groups=["Page"]]
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0

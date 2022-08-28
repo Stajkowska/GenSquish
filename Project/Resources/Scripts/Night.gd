@@ -15,5 +15,5 @@ func _process(delta):
 	switchScene()
 	
 func switchScene():
-	get_tree().change_scene_to(load("res://Resources/Levels/Home.tscn"));
+	get_tree().change_scene("res://Resources/Levels/Home.tscn");
 

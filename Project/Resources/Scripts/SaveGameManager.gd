@@ -49,7 +49,8 @@ func loadGame():
 		var dt  = resultJSON.result
 		
 		var newObject = load(dt["filename"]).instance()
-		get_node(dt["parent"]).add_child(newObject)
+		get_tree().get_root().call_deferred("add_child", newObject)
+		#get_node(dt["parent"]).add_child(newObject)
 		newObject.loadData(dt)
 		
 	saveGame.close()

@@ -6,6 +6,7 @@ var MedicineAmount = null
 var LPAmount = null
 var Money = 10
 onready var UINode = get_tree().get_root().find_node("CanvasForGUI",true,false)
+onready var WM = get_tree().get_root().find_node("WorldManager",true,false)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,7 +16,13 @@ func _ready():
 	LPAmount = 5 
 
 func SellSlime(slime, price):
-	print("I got the data")
+	var proposedPrice = getSlimePrice(slime.Genes)
+	if (price > proposedPrice+40):
+		#Price is too high
+		WM.SlimeNotSold()
+	else:
+		WM.SlimeSold(price)
+		slime.gotSold()
 
 func RemoveFood(cost):
 	FoodAmount -= cost
