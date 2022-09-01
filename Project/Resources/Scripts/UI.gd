@@ -10,6 +10,7 @@ var Magazine = null
 signal dayEnds
 signal SlimeWindow
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	popNodes = get_tree().get_nodes_in_group("PopUps")
@@ -32,11 +33,9 @@ func _on_BedSheet_body_entered(body):
 	self.show()
 	$SleepPopUp.set_position(get_viewport_rect().size / 2 - $SleepPopUp.rect_size /2 )
 	$SleepPopUp.show()
-
-func _on_BedSheet_body_exited(body):
-	hideSelf()
 	
 func ConfirmSleep():
+	print("Confirm")
 	emit_signal("dayEnds")
 	
 func _on_CanvasForPopups_visibility_changed():
@@ -48,7 +47,6 @@ func _on_CanvasForPopups_visibility_changed():
 func hideSelf():
 	windowVisible = false
 	popNodes = get_tree().get_nodes_in_group("PopUps")
-	
 	for i in popNodes:
 		if (i.visible):
 			windowVisible = true
@@ -87,7 +85,7 @@ func ShowConfirmation(aim):
 	match aim:
 		"Nothing":
 			$ConfirmationDialog.dialog_text = "Are you sure?"
-		"SellSlime":
+		"ReleaseSlime":
 			$ConfirmationDialog.dialog_text = "Are you sure?"
 		"FeedAll":
 			$ConfirmationDialog.dialog_text = "Do you want to feed all slimes?"
@@ -102,11 +100,11 @@ func Confirmed(result, aim):
 	match aim:
 		"Nothing":
 			pass
-		"SellSlime":
+		"ReleaseSlime":
 			if (result):
-				Slime.health = -100
-				ShowPopUp("Your slime will be released tonight!")
-			ShowSlimeOptions()
+				ShowPopUp("Your slime will be now released!")
+				Slime.death()
+			$SlimeOptionsPopUp.hide()
 		"FeedAll":
 			var Slimes = get_tree().get_nodes_in_group("Slime")
 			if (Slimes.size() > Magazine.FoodAmount):

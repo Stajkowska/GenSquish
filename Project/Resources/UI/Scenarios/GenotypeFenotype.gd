@@ -31,16 +31,15 @@ func _on_TheoryButton_pressed():
 func _on_CheckAnswerB_pressed():
 	#Quantity  0 
 	#Quality - 1
-	if ($Excercise/Label3/WeightB.get_selected_id() == 0 &&
-	$Excercise/Label6/EyeCB.get_selected_id() == 1 &&
-	$Excercise/Label7/HeightB.get_selected_id() == 0 &&
-	$Excercise/Label8/NoseShapeB.get_selected_id() == 1 &&
-	$Excercise/Label9/SusceptibilityB.get_selected_id() == 0):
-		UINode.ShowPopUp("Congratulations! You finished your first scenario! You unlocked the next one.")
+	if ($Excercise/aaB.get_selected_id() == 0 &&
+	$Excercise/BaB.get_selected_id() == 1 &&
+	$Excercise/bbB.get_selected_id() == 2 &&
+	$Excercise/ABB.get_selected_id() == 4):
+		UINode.ShowPopUp("Congratulations! You unlocked another scenario.")
 		$Theory.visible = true
 		$Excercise.visible = false
 		self.visible = false
-		Scenarios.FinishedScenario(1)
+		Scenarios.FinishedScenario(3)
 	else:
 		UINode.ShowPopUp("This is not correct.")
 	

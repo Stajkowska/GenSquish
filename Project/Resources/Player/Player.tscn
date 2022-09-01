@@ -609,7 +609,7 @@ radius = 35.0143
 radius = 12.1164
 height = 8.97607
 
-[node name="Player" type="KinematicBody2D" groups=["Persist"]]
+[node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, -2 )
 scale = Vector2( 2.3, 2.3 )
 collision_layer = 2147483650

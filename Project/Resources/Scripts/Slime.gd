@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 var Slime = load("res://Resources/Scenes/Slime/Slime.tscn")
+onready var OGenes = preload("res://Resources/Scenes/Slime/GeneManager.tscn")
 
 var knockback = Vector2.ZERO
 var velocity = Vector2.ZERO
@@ -18,7 +19,7 @@ var getMedicine = false
 var UINode = null
 var Name = "Nameless"
 var Age = 0
-
+var GN = null
 export var birth = false
 export var acceleration = 400
 export var maxSpeed = 50
@@ -36,6 +37,7 @@ onready var sprite = $Slime
 onready var WC = $WanderController
 onready var EButton = $EButton
 onready var SC = $SoftCollision
+onready var T = $Timer
 
 enum {
 	IDLE,
@@ -52,8 +54,13 @@ func _ready():
 	UINode = get_tree().get_root().find_node("CanvasForPopups",true,false)
 	set_material(get_material().duplicate())
 	material.set_shader_param("body_color", Genes.getBodyColour())
+	if (GN != null):
+		Genes.setGenes(GN)
 	scale.x	= Genes.getSizeGeneValue()
 	scale.y	= Genes.getSizeGeneValue()
+	add_to_group("Persist", true)
+	add_to_group("Interactable", true)
+	T.start(1200) #start timer for 20 minutes
 
 func spawnSlime(_Genes):
 	add_to_group("Persist", true)
@@ -206,7 +213,10 @@ func save():
 		"getMedicine": getMedicine,
 		"isSick": isSick,
 		"name": Name,
-		"age": Age
+		"age": Age,
+		"SizeGene" : Genes.sizeGene,
+		"BodyColourGene" : Genes.bodyColourGene,
+		"EyeColourGene" : Genes.eyeColourGene
 	}
 	return save_dict
 	
@@ -233,6 +243,12 @@ func loadData(gameData):
 	Name = gameData.name
 	Age = gameData.age
 	checkSlimeHealth()
+	var OGenes = preload("res://Resources/Scenes/Slime/GeneManager.tscn")
+	GN = OGenes.instance()
+	GN.sizeGene = gameData.SizeGene
+	GN.bodyColourGene = gameData.BodyColourGene
+	GN.eyeColourGene = gameData.EyeColourGene
+
 	
 func isInLove():
 	return getInLove
@@ -247,4 +263,9 @@ func HideInteraction():
 	EButton.visible = false
 	
 func gotSold():
-	health -= 100
+	death()
+
+
+func _on_Timer_timeout():
+	checkSlimeHealth()
+	T.start(1200)

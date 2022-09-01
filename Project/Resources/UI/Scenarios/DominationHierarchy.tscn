@@ -61,28 +61,28 @@ margin_top = 8.0
 margin_right = 118.0
 margin_bottom = 28.0
 rect_scale = Vector2( 1.2, 1.2 )
-text = "Domination Hierarchy"
+text = "Hierarchy of Domination"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="Theory"]
-margin_left = 16.0
+margin_left = 8.0
 margin_top = 40.0
-margin_right = 400.0
+margin_right = 616.0
 margin_bottom = 106.0
-text = "When inspecting your slimes, you can notice, that they have different sizes and colours."
+text = "As you noticed, gene can have multiple dominant version"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="Theory"]
-margin_left = 16.0
-margin_top = 128.0
-margin_right = 608.0
-margin_bottom = 194.0
-text = "Those characteristics can be defined as a property of an organism according to which individuals can be divided into classes."
+margin_left = 8.0
+margin_top = 112.0
+margin_right = 600.0
+margin_bottom = 178.0
+text = "Domination hierarchy determines, which dominant genes will"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -102,17 +102,18 @@ __meta__ = {
 
 [node name="HealthySlime" type="AnimatedSprite" parent="Theory"]
 material = ExtResource( 2 )
-position = Vector2( 432, 64 )
+position = Vector2( 636, 64 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
+frame = 3
 playing = true
 
 [node name="HealthySlime2" type="AnimatedSprite" parent="Theory"]
 material = ExtResource( 2 )
-position = Vector2( 544, 56 )
+position = Vector2( 748, 56 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 28 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="ExcersiseButton" type="Button" parent="Theory"]

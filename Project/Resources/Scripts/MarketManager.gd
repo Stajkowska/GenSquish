@@ -1,9 +1,9 @@
 extends Node2D
 
 
-var FoodAmount = null
-var MedicineAmount = null
-var LPAmount = null
+var FoodAmount = 5
+var MedicineAmount = 5
+var LPAmount = 5
 var Money = 10
 onready var UINode = get_tree().get_root().find_node("CanvasForGUI",true,false)
 onready var WM = get_tree().get_root().find_node("WorldManager",true,false)
@@ -11,18 +11,14 @@ onready var WM = get_tree().get_root().find_node("WorldManager",true,false)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	FoodAmount = 5
-	MedicineAmount = 5
-	LPAmount = 5 
+	UpdateMoney(0)
 
 func SellSlime(slime, price):
 	var proposedPrice = getSlimePrice(slime.Genes)
 	if (price > proposedPrice+40):
-		#Price is too high
-		WM.SlimeNotSold()
+		return false
 	else:
-		WM.SlimeSold(price)
-		slime.gotSold()
+		return true
 
 func RemoveFood(cost):
 	FoodAmount -= cost
@@ -30,22 +26,6 @@ func RemoveMedicine(cost):
 	MedicineAmount -= cost
 func RemoveLP(cost):
 	LPAmount -= cost
-
-func save():
-	var save_dict = {
-		"filename" : get_filename(),
-		"parent" : get_parent().get_path(),
-		"node" : "MartketManager",
-		"FoodAmount": FoodAmount,
-		"MedicineAmount": MedicineAmount,
-		"LPAMount": LPAmount
-	}
-	return save_dict
-
-func loadData(gameData):
-	FoodAmount = gameData.FoodAmount
-	MedicineAmount = gameData.MedicineAmount
-	LPAmount = gameData.LPAmount 
 	
 func UpdateMoney(cost):
 	Money -= cost

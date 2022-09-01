@@ -29,6 +29,7 @@ onready var swordHitBox = $HitBoxPivot/SwordHitBox
 #onready var playerHB = $HurtBox
 
 func _ready():
+	loadData()
 	stats.connect("noHP", self, "die")
 	animationTree.active = true
 	swordHitBox.kVector = movementVector
@@ -128,9 +129,10 @@ func save():
 	}
 	return save_dict
 
-func loadData(gameData):
-	position.x = 168
-	position.y = 536
+func loadData():
+	pass
+	#position.x = 168
+	#position.y = 536
 
 
 func _on_InteractionRange_body_entered(body):

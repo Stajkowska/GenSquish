@@ -18,19 +18,6 @@ func _ready():
 		Scenarios.append(i)
 
 	
-func save():
-	var save_dict = {
-		"filename" : get_filename(),
-		"parent" : get_parent().get_path(),
-		"node" : "ScenariosPopUp",
-		"id" : get_instance_id(),
-		"ScenariosUnlocked" : ScenariosUnlocked
-	}
-	return save_dict
-
-func loadData(gameData):
-	ScenariosUnlocked = gameData.ScenariosUnlocked
-	
 func FinishedScenario(number):
 	if (ScenariosUnlocked < number):
 		match number:
@@ -95,7 +82,14 @@ func FinishedScenario(number):
 func _on_Scenario1_pressed():
 	$TheBasics.visible = true
 	
+func _on_Scenario2_pressed():
+	$Allels.visible = true
+
+func _on_Scenario3_pressed():
+	$GenotypeFenotype.visible = true
+
 func UpdateScenarios():
 	for i in ScenariosUnlocked+1:
 		print(Scenarios[i])
 		Scenarios[i].disabled = false
+

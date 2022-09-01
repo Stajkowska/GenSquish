@@ -82,7 +82,7 @@ func _on_ChangeNameButton_pressed():
 
 func _on_ReleaseButton_pressed():
 	#self.hide()
-	UINode.ShowConfirmation("SellSlime")
+	UINode.ShowConfirmation("ReleaseSlime")
 	
 func _on_SellButton_pressed():
 	UINode.ShowPriceSet()

@@ -1,18 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
 [ext_resource path="res://Resources/UI/PopUps/Scripts/ScenariosPopUp.gd" type="Script" id=2]
 [ext_resource path="res://Resources/UI/Scenarios/TheBasics.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Resources/UI/Scenarios/DominationHierarchy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Resources/UI/Scenarios/DominationHierarchy.gd" type="Script" id=5]
+[ext_resource path="res://Resources/UI/Scenarios/TheFirstLaw.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Resources/UI/Scenarios/GenotypeFenotype.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/UI/Scenarios/Allels.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Resources/UI/Scenarios/GenotypeFenotype.gd" type="Script" id=8]
-[ext_resource path="res://Resources/UI/Scenarios/Allels.gd" type="Script" id=9]
 
-[node name="ScenariosPopUp" type="WindowDialog" groups=["Persist"]]
-margin_right = 624.0
-margin_bottom = 424.0
+[node name="ScenariosPopUp" type="WindowDialog"]
+visible = true
+margin_right = 760.0
+margin_bottom = 296.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -24,8 +22,8 @@ margin_right = 1024.0
 margin_bottom = 640.0
 
 [node name="Panel" type="Panel" parent="MainMenu"]
-margin_right = 624.0
-margin_bottom = 424.0
+margin_right = 760.0
+margin_bottom = 304.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -82,81 +80,21 @@ margin_bottom = 152.0
 disabled = true
 
 [node name="Label" type="Label" parent="MainMenu/Scenario4"]
-margin_top = 24.0
-margin_right = 120.0
-margin_bottom = 88.0
-text = "Domination Hierarchy"
-align = 1
-autowrap = true
-
-[node name="Scenario5" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 24.0
-margin_top = 176.0
-margin_right = 144.0
-margin_bottom = 280.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario5"]
 margin_top = 16.0
 margin_right = 120.0
-margin_bottom = 88.0
+margin_bottom = 90.0
 text = "The Law of Equal Segreagtion"
 align = 1
 autowrap = true
 
-[node name="Scenario6" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 176.0
-margin_top = 176.0
-margin_right = 296.0
-margin_bottom = 280.0
+[node name="Scenario5" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 616.0
+margin_top = 48.0
+margin_right = 736.0
+margin_bottom = 152.0
 disabled = true
 
-[node name="Label" type="Label" parent="MainMenu/Scenario6"]
-margin_top = 32.0
-margin_right = 120.0
-margin_bottom = 88.0
-text = "Example 1 Size Gene"
-align = 1
-autowrap = true
-
-[node name="Scenario7" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 328.0
-margin_top = 176.0
-margin_right = 448.0
-margin_bottom = 280.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario7"]
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 106.0
-text = "Exercise 3"
-align = 1
-autowrap = true
-
-[node name="Scenario8" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 480.0
-margin_top = 176.0
-margin_right = 600.0
-margin_bottom = 280.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario8"]
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 88.0
-text = "Exercise 4"
-align = 1
-autowrap = true
-
-[node name="Scenario9" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 24.0
-margin_top = 296.0
-margin_right = 144.0
-margin_bottom = 400.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario9"]
+[node name="Label" type="Label" parent="MainMenu/Scenario5"]
 margin_top = 8.0
 margin_right = 120.0
 margin_bottom = 105.0
@@ -164,54 +102,86 @@ text = "The Law of Independent Assortment"
 align = 1
 autowrap = true
 
-[node name="Scenario10" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 176.0
-margin_top = 296.0
-margin_right = 296.0
-margin_bottom = 400.0
+[node name="Scenario6" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 24.0
+margin_top = 176.0
+margin_right = 144.0
+margin_bottom = 280.0
 disabled = true
 
-[node name="Label" type="Label" parent="MainMenu/Scenario10"]
-margin_top = 16.0
+[node name="Label" type="Label" parent="MainMenu/Scenario6"]
+margin_top = 40.0
 margin_right = 120.0
 margin_bottom = 88.0
-text = "Example 2
-Colour + Size"
+text = "Exercise 1"
+align = 1
+autowrap = true
+
+[node name="Scenario7" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 176.0
+margin_top = 176.0
+margin_right = 296.0
+margin_bottom = 280.0
+disabled = true
+
+[node name="Label" type="Label" parent="MainMenu/Scenario7"]
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 106.0
+text = "Exercise 2"
+align = 1
+autowrap = true
+
+[node name="Scenario8" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 328.0
+margin_top = 176.0
+margin_right = 448.0
+margin_bottom = 280.0
+disabled = true
+
+[node name="Label" type="Label" parent="MainMenu/Scenario8"]
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 88.0
+text = "Exercise 3"
+align = 1
+autowrap = true
+
+[node name="Scenario9" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 480.0
+margin_top = 176.0
+margin_right = 600.0
+margin_bottom = 280.0
+disabled = true
+
+[node name="Label" type="Label" parent="MainMenu/Scenario9"]
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 105.0
+text = "Exercise 4"
+align = 1
+autowrap = true
+
+[node name="Scenario10" type="Button" parent="MainMenu" groups=["Scenario"]]
+margin_left = 616.0
+margin_top = 176.0
+margin_right = 736.0
+margin_bottom = 280.0
+disabled = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MainMenu/Scenario10"]
+margin_top = 40.0
+margin_right = 120.0
+margin_bottom = 88.0
+text = "Exercise 5"
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Scenario11" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 328.0
-margin_top = 296.0
-margin_right = 448.0
-margin_bottom = 400.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario11"]
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 106.0
-text = "Exercise 5"
-align = 1
-autowrap = true
-
-[node name="Scenario12" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 480.0
-margin_top = 296.0
-margin_right = 600.0
-margin_bottom = 400.0
-disabled = true
-
-[node name="Label" type="Label" parent="MainMenu/Scenario12"]
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 88.0
-text = "Exercise 6"
-align = 1
-autowrap = true
 
 [node name="Label" type="Label" parent="MainMenu"]
 margin_left = 8.0
@@ -219,47 +189,24 @@ margin_top = 8.0
 margin_right = 200.0
 margin_bottom = 56.0
 text = "Scenarios"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TheBasics" parent="." instance=ExtResource( 3 )]
 visible = false
 
-[node name="DominationHierarchy" parent="." instance=ExtResource( 4 )]
+[node name="TheFirstLaw" parent="." instance=ExtResource( 4 )]
 visible = false
-script = ExtResource( 5 )
 
 [node name="Allels" parent="." instance=ExtResource( 7 )]
 visible = false
-script = ExtResource( 9 )
 
 [node name="GenotypeFenotype" parent="." instance=ExtResource( 6 )]
 visible = false
-script = ExtResource( 8 )
 
-[node name="TheFirstLaw" type="Control" parent="."]
+[node name="TheSecondLaw" parent="." instance=ExtResource( 3 )]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExampleSizeGene" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-
-[node name="TheSecondLaw" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExampleColourSize" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
 
 [node name="Exercise1" type="Control" parent="."]
 visible = false
@@ -301,12 +248,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Exercise6" type="Control" parent="."]
-visible = false
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [connection signal="pressed" from="MainMenu/Scenario1" to="." method="_on_Scenario1_pressed"]
+[connection signal="pressed" from="MainMenu/Scenario2" to="." method="_on_Scenario2_pressed"]
+[connection signal="pressed" from="MainMenu/Scenario3" to="." method="_on_Scenario3_pressed"]

@@ -13,8 +13,13 @@ func _ready():
 	MarketManager = get_tree().get_root().find_node("MarketManager",true,false)
 
 func _on_AcceptButton_pressed():
-	MarketManager.SellSlime(Slime, $SlimePrice.text)
-	UINode.ShowPopUp("You will try to sell your slime tonight for " + $SlimePrice.text +"!")
+	var sold = MarketManager.SellSlime(Slime, $SlimePrice.text)
+	if (sold):
+		UINode.ShowPopUp("You sold your slime for " + $SlimePrice.text +"!")
+		Slime.death()
+		MarketManager.UpdateMoney(-(int($SlimePrice.text)))
+	else:
+		UINode.ShowPopUp("Your price was too high!")
 	UINode.ShowSlimeOptions()
 	self.hide()
 

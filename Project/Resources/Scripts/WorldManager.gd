@@ -4,13 +4,18 @@ signal playerFaint
 signal fadeToBlack
 signal saveGame
 
+onready var Market
+onready var Scenarios
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#The scene is loaded for the first time. 
 	#Load data from save
 	#Unhide all new objects for the player
 	#Set the correct time
-	pass
+	Market = get_tree().get_root().find_node("MarketManager",true,false)
+	Scenarios = get_tree().get_root().find_node("ScenariosPopUp",true,false)
+
 
 
 func EndDay():
@@ -29,6 +34,7 @@ func _on_CanvasForGUI_dayEnds():
 	EndDay()
 
 func _on_CanvasForPopups_dayEnds():
+	print("Dostałem")
 	EndDay()
 	
 func save():
@@ -36,8 +42,20 @@ func save():
 		"filename" : get_filename(),
 		"parent" : get_parent().get_path(),
 		"node" : "WorldManager",
+		"Money" : Market.Money,
+		"ScenariosUnlocked" : Scenarios.ScenariosUnlocked,
+		"FoodAmount": Market.FoodAmount,
+		"MedicineAmount": Market.MedicineAmount,
+		"LPAMount": Market.LPAmount
 	}
 	return save_dict
 
 func loadData(gameData):
-	print("I loaded WM")
+	#Market.Money = gameData.Money
+	#Market.UpdateMoney(0)
+	#Scenarios.ScenariosUnlocked = gameData.ScenariosUnlocked
+	#Market.FoodAmount = gameData.FoodAmount
+	#Market.MedicineAmount = gameData.MedicineAmount
+	#Market.LPAmount = gameData.LPAmount 
+	pass
+	

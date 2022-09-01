@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
+[ext_resource path="res://Resources/UI/Scenarios/TheFirstLaw.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Scenes/Slime/SlimeMaterial.tres" type="Material" id=3]
-[ext_resource path="res://Resources/UI/Scenarios/TheBasics.gd" type="Script" id=4]
+[ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=4]
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
@@ -37,63 +37,12 @@ animations = [ {
 "speed": 7.02
 } ]
 
-[sub_resource type="Shader" id=29]
-code = "shader_type canvas_item;
-
-
-uniform vec4 white_color: hint_color = vec4(1.0);
-uniform vec4 body_color: hint_color = vec4(1.0);
-uniform vec4 heart_color: hint_color = vec4(1.0);
-uniform float tolerance: hint_range(0.0,1.0) = 0.5;
-
-uniform vec4 white_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
-uniform vec4 body_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
-uniform vec4 heart_mask_color: hint_color = vec4(1.0,0.0,1.0,1.0);
-
-void fragment(){
-	vec4 color_a = texture(TEXTURE,UV);
-	vec3 color = color_a.rgb;
-	float a = color_a.a;
-	
-	float white_len = length(white_mask_color.rgb);
-	float body_len = length(body_mask_color.rgb);
-	float heart_len = length(heart_mask_color.rgb);
-	
-	float b_len = length(color);
-	
-	vec3 white_mask_norm = white_mask_color.rgb / white_len * b_len;
-	vec3 white_color_norm = white_color.rgb / white_len * b_len;
-	vec3 body_mask_norm = body_mask_color.rgb / body_len * b_len;
-	vec3 body_color_norm = body_color.rgb / body_len * b_len;
-	vec3 heart_mask_norm = heart_mask_color.rgb / heart_len * b_len;
-	vec3 heart_color_norm = heart_color.rgb / heart_len * b_len;
-	
-	float white_dist = distance(color, white_mask_norm);
-	float body_dist = distance(color, body_mask_norm);
-	float heart_dist = distance(color, heart_mask_norm);
-	
-	color = mix(white_color_norm, color, step(tolerance, white_dist));
-	color = mix(body_color_norm, color, step(tolerance, body_dist));
-	color = mix(heart_color_norm, color, step(tolerance, heart_dist));
-	COLOR = vec4(color, a);
-}"
-
-[sub_resource type="ShaderMaterial" id=30]
-shader = SubResource( 29 )
-shader_param/white_color = Color( 0.105882, 0.501961, 0.917647, 1 )
-shader_param/body_color = Color( 0.176471, 0.862745, 0.168627, 1 )
-shader_param/heart_color = Color( 0.843137, 0.223529, 0.223529, 1 )
-shader_param/tolerance = 0.2
-shader_param/white_mask_color = Color( 1, 1, 1, 1 )
-shader_param/body_mask_color = Color( 0.847059, 0.298039, 0.298039, 1 )
-shader_param/heart_mask_color = Color( 1, 0.615686, 0.898039, 1 )
-
-[node name="TheBasics" type="Control"]
+[node name="TheFirstLaw" type="Control"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 304, -96 )
-theme = ExtResource( 1 )
-script = ExtResource( 4 )
+theme = ExtResource( 4 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -112,28 +61,28 @@ margin_top = 8.0
 margin_right = 118.0
 margin_bottom = 28.0
 rect_scale = Vector2( 1.2, 1.2 )
-text = "The Basics"
+text = "Hierarchy of Domination"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label2" type="Label" parent="Theory"]
-margin_left = 16.0
+margin_left = 8.0
 margin_top = 40.0
-margin_right = 400.0
+margin_right = 616.0
 margin_bottom = 106.0
-text = "When inspecting your slimes, you can notice, that they have different sizes and colours."
+text = "As you noticed, gene can have multiple dominant version"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label3" type="Label" parent="Theory"]
-margin_left = 16.0
-margin_top = 128.0
-margin_right = 608.0
-margin_bottom = 194.0
-text = "Those characteristics can be defined as a property of an organism according to which individuals can be divided into classes."
+margin_left = 8.0
+margin_top = 112.0
+margin_right = 600.0
+margin_bottom = 178.0
+text = "Domination hierarchy determines, which dominant genes will"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,15 +102,15 @@ __meta__ = {
 
 [node name="HealthySlime" type="AnimatedSprite" parent="Theory"]
 material = ExtResource( 3 )
-position = Vector2( 432, 64 )
+position = Vector2( 636, 64 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
 frame = 5
 playing = true
 
 [node name="HealthySlime2" type="AnimatedSprite" parent="Theory"]
-material = SubResource( 30 )
-position = Vector2( 544, 56 )
+material = ExtResource( 3 )
+position = Vector2( 748, 56 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 28 )
 frame = 4
@@ -231,7 +180,7 @@ margin_left = 280.0
 margin_top = -8.0
 margin_right = 440.0
 margin_bottom = 22.0
-theme = ExtResource( 1 )
+theme = ExtResource( 4 )
 text = "Quantitive"
 items = [ "Quantitive", null, false, 0, null, "Quality", null, false, 1, null ]
 selected = 0
