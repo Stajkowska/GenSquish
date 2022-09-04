@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Resources/Maps/home.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Scenes/Slime/Slime.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Resources/Scenes/DayNightCycle/BedSheet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UsedAssets/Music/2020-02-22_-_Relaxing_Green_Nature_-_David_Fesliyan.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Resources/Scenes/WorldManager.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Scenes/Player/CanvasForGUI.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Scenes/Player/CanvasForPopups.tscn" type="PackedScene" id=8]
@@ -184,6 +185,10 @@ pause_mode = 2
 
 [node name="CanvasForPopups" parent="UI" instance=ExtResource( 8 )]
 pause_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+autoplay = true
 
 [connection signal="playerFaint" from="WorldManager" to="Background/YSort/Player" method="_on_WorldManager_playerFaint"]
 [connection signal="saveGame" from="WorldManager" to="SaveGameManager" method="_on_WorldManager_saveGame"]

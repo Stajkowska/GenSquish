@@ -6,6 +6,7 @@ signal saveGame
 
 onready var Market
 onready var Scenarios
+onready var UI
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,8 +14,10 @@ func _ready():
 	#Load data from save
 	#Unhide all new objects for the player
 	#Set the correct time
+	UI = get_tree().get_root().find_node("CanvasForPopups",true,false)
 	Market = get_tree().get_root().find_node("MarketManager",true,false)
 	Scenarios = get_tree().get_root().find_node("ScenariosPopUp",true,false)
+	UI.ShowPopUp("Welcome to GenSquish! Check out your house, breed slimes and complete challenges!")
 
 
 

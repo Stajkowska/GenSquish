@@ -21,6 +21,8 @@ func _ready():
 #func _process(delta):
 #	pass
 func _process(delta):
+	if Input.is_action_just_pressed("openScenarios"):
+		ShowScenarios()
 	if Input.is_key_pressed(KEY_ESCAPE):
 		self.hide()
 		for i in popNodes:

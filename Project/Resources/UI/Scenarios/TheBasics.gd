@@ -29,18 +29,17 @@ func _on_TheoryButton_pressed():
 	$Excercise.visible = false
 
 func _on_CheckAnswerB_pressed():
-	#Quantity  0 
-	#Quality - 1
-	if ($Excercise/Label3/WeightB.get_selected_id() == 0 &&
-	$Excercise/Label6/EyeCB.get_selected_id() == 1 &&
-	$Excercise/Label7/HeightB.get_selected_id() == 0 &&
-	$Excercise/Label8/NoseShapeB.get_selected_id() == 1 &&
-	$Excercise/Label9/SusceptibilityB.get_selected_id() == 0):
-		UINode.ShowPopUp("Congratulations! You finished your first scenario! You unlocked the next one.")
-		$Theory.visible = true
-		$Excercise.visible = false
-		self.visible = false
-		Scenarios.FinishedScenario(1)
+	if ($Excercise/Button.pressed && $Excercise/Button5.pressed && 
+	$Excercise/Button8.pressed):
+		if ($Excercise/Button2.pressed || $Excercise/Button3.pressed || 
+		$Excercise/Button4.pressed || $Excercise/Button6.pressed|| $Excercise/Button7.pressed):
+			UINode.ShowPopUp("This is not correct. Remember to read the theory carefully. You probably selected too much options.")
+		else:
+			UINode.ShowPopUp("Congratulations! You unlocked the next scenario.")
+			$Theory.visible = true
+			$Excercise.visible = false
+			self.visible = false
+			Scenarios.FinishedScenario(5)
 	else:
-		UINode.ShowPopUp("This is not correct.")
+		UINode.ShowPopUp("This is not correct. Remember to read the theory carefully. You probably didn't select all possible options.")
 	

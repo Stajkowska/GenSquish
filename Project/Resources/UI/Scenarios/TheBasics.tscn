@@ -156,7 +156,7 @@ material = ExtResource( 3 )
 position = Vector2( 432, 64 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="HealthySlime2" type="AnimatedSprite" parent="Theory"]
@@ -164,7 +164,7 @@ material = SubResource( 30 )
 position = Vector2( 544, 56 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 28 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="ExcersiseButton" type="Button" parent="Theory"]
@@ -179,7 +179,7 @@ margin_left = 16.0
 margin_top = 384.0
 margin_right = 92.0
 margin_bottom = 414.0
-text = "Scenarios"
+text = "Challenges"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -334,7 +334,7 @@ margin_left = 16.0
 margin_top = 384.0
 margin_right = 92.0
 margin_bottom = 414.0
-text = "Scenarios"
+text = "Challenges"
 
 [node name="TheoryButton" type="Button" parent="Excercise"]
 margin_left = 512.0

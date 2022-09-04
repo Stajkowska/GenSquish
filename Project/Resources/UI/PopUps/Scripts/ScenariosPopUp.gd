@@ -87,9 +87,15 @@ func _on_Scenario2_pressed():
 
 func _on_Scenario3_pressed():
 	$GenotypeFenotype.visible = true
+	
+func _on_Scenario4_pressed():
+	$TheFirstLaw.visible = true
 
 func UpdateScenarios():
 	for i in ScenariosUnlocked+1:
 		print(Scenarios[i])
 		Scenarios[i].disabled = false
+
+
+
 

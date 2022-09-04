@@ -139,7 +139,7 @@ material = ExtResource( 2 )
 position = Vector2( 24.0001, 32 )
 scale = Vector2( 3.5, 3.5 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Label9" type="Label" parent="Theory"]
@@ -157,7 +157,6 @@ material = ExtResource( 2 )
 position = Vector2( 16, -24 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
-frame = 1
 playing = true
 
 [node name="Label10" type="Label" parent="Theory"]
@@ -175,6 +174,7 @@ material = ExtResource( 2 )
 position = Vector2( 16, -24 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
+frame = 5
 playing = true
 
 [node name="Label11" type="Label" parent="Theory"]
@@ -192,7 +192,7 @@ material = ExtResource( 2 )
 position = Vector2( 16, -40 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 28 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Label12" type="Label" parent="Theory"]
@@ -210,7 +210,7 @@ material = ExtResource( 2 )
 position = Vector2( 16, -32 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="ExcersiseButton" type="Button" parent="Theory"]
@@ -225,7 +225,7 @@ margin_left = 16.0
 margin_top = 384.0
 margin_right = 92.0
 margin_bottom = 414.0
-text = "Scenarios"
+text = "Challenges"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -306,7 +306,7 @@ material = ExtResource( 2 )
 position = Vector2( 96, 160 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 4
+frame = 3
 playing = true
 
 [node name="5" type="AnimatedSprite" parent="Excercise"]
@@ -314,7 +314,7 @@ material = ExtResource( 2 )
 position = Vector2( 248, 168 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 28 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="6" type="AnimatedSprite" parent="Excercise"]
@@ -322,7 +322,7 @@ material = ExtResource( 2 )
 position = Vector2( 392, 152 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="7" type="AnimatedSprite" parent="Excercise"]
@@ -330,7 +330,7 @@ material = ExtResource( 2 )
 position = Vector2( 520, 157.6 )
 scale = Vector2( 2.7, 2.7 )
 frames = SubResource( 28 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="aaB" type="OptionButton" parent="Excercise"]
@@ -396,7 +396,7 @@ margin_left = 16.0
 margin_top = 384.0
 margin_right = 92.0
 margin_bottom = 414.0
-text = "Scenarios"
+text = "Challenges"
 
 [node name="TheoryButton" type="Button" parent="Excercise"]
 margin_left = 512.0

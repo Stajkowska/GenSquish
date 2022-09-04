@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=25]
+[sub_resource type="Shader" id=29]
 code = "shader_type canvas_item;
 
 
@@ -42,9 +42,9 @@ void fragment(){
 }"
 
 [resource]
-shader = SubResource( 25 )
+shader = SubResource( 29 )
 shader_param/white_color = Color( 0.94902, 0.866667, 0.960784, 1 )
-shader_param/body_color = Color( 0.854902, 0.862745, 0.168627, 1 )
+shader_param/body_color = Color( 0.862745, 0.168627, 0.168627, 1 )
 shader_param/heart_color = Color( 0.843137, 0.223529, 0.223529, 1 )
 shader_param/tolerance = 0.2
 shader_param/white_mask_color = Color( 1, 1, 1, 1 )

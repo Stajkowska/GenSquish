@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=1]
 [ext_resource path="res://Resources/Art/Slime/slime_idle.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Resources/Art/UI/BuyJars.png" type="Texture" id=14]
 [ext_resource path="res://Resources/Art/UI/BuySlimes.png" type="Texture" id=15]
 [ext_resource path="res://Resources/Art/UI/SellSlime.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Art/UI/scenarios.png" type="Texture" id=17]
+[ext_resource path="res://Resources/Art/UI/bookcase.png" type="Texture" id=18]
 
 [sub_resource type="AtlasTexture" id=22]
 atlas = ExtResource( 2 )
@@ -114,6 +116,7 @@ animations = [ {
 } ]
 
 [node name="TutorialPopUp" type="WindowDialog"]
+visible = true
 margin_right = 496.0
 margin_bottom = 328.0
 rect_scale = Vector2( 1.2, 1.2 )
@@ -248,7 +251,7 @@ material = ExtResource( 4 )
 position = Vector2( 376, 216 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="EButton" parent="Page1" instance=ExtResource( 3 )]
@@ -418,7 +421,7 @@ margin_left = 64.0
 margin_top = 48.0
 margin_right = 249.0
 margin_bottom = 120.0
-text = "Your slime needs to be feed once per day."
+text = "Your slime needs to be feed every 20 minutes."
 align = 1
 autowrap = true
 __meta__ = {
@@ -430,7 +433,6 @@ material = ExtResource( 4 )
 position = Vector2( 120, 184 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 29 )
-frame = 2
 playing = true
 
 [node name="Label12" type="Label" parent="Page3"]
@@ -557,7 +559,7 @@ material = ExtResource( 4 )
 position = Vector2( 96, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 5
+frame = 3
 playing = true
 
 [node name="SlimeInLove2" type="AnimatedSprite" parent="Page4"]
@@ -565,7 +567,7 @@ material = ExtResource( 4 )
 position = Vector2( 176, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 4
+frame = 2
 playing = true
 flip_h = true
 
@@ -736,6 +738,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Bookcase" type="Sprite" parent="Page7/Panel3"]
+position = Vector2( 126.667, 226.667 )
+texture = ExtResource( 18 )
+
 [node name="Panel4" type="Panel" parent="Page7"]
 margin_left = 248.0
 margin_right = 496.0
@@ -749,7 +755,7 @@ margin_left = 8.0
 margin_top = 16.0
 margin_right = 248.0
 margin_bottom = 40.0
-text = "Scenarios"
+text = "Challenges"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -771,7 +777,7 @@ margin_left = 264.0
 margin_top = 16.0
 margin_right = 488.0
 margin_bottom = 82.0
-text = "You can start a scenarios by pressing their icon."
+text = "You can start a challenge by pressing their icon."
 align = 1
 autowrap = true
 __meta__ = {
@@ -783,12 +789,17 @@ margin_left = 256.0
 margin_top = 192.0
 margin_right = 488.0
 margin_bottom = 281.0
-text = "By completing a scenario you unlock more, get rewards like slimes and money."
+text = "By completing a challenge you unlock more, get rewards like slimes and money."
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Scenarios" type="Sprite" parent="Page7"]
+position = Vector2( 373.333, 140 )
+scale = Vector2( 0.540404, 0.540404 )
+texture = ExtResource( 17 )
 
 [node name="RightButton" type="Button" parent="."]
 margin_left = 464.0

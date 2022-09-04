@@ -19,23 +19,21 @@ func _on_Resume_pressed():
 	self.visible=false
 	get_tree().paused=false
 
+func _on_Quit_pressed():
+	get_tree().quit()
+
+
 func _on_HSlider_value_changed(value):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"),linear2db(value))
 	print(value)
 
 
 func _on_menuOptions_pressed():
-	self.visible = true
+	var new_pause_state=not get_tree().paused
+	get_tree().paused= new_pause_state
+	self.visible=new_pause_state
 
 
 func _on_return_to_menu_pressed():
 	self.visible=false
 	get_tree().paused=false
-
-
-func _on_playButton_pressed():
-	get_tree().change_scene("res://Resources/Levels/Home.tscn");
-
-
-func _on_exitButton_pressed():
-	get_tree().quit()
