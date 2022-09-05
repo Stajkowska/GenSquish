@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Resources/Maps/home.png" type="Texture" id=1]
 [ext_resource path="res://Resources/Player/Player.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Resources/Art/Props/table.png" type="Texture" id=19]
 [ext_resource path="res://Resources/Scenes/Environment/Computer.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Resources/Scenes/Environment/Library.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Resources/Art/Props/door.png" type="Texture" id=22]
 
 [sub_resource type="CircleShape2D" id=32]
 radius = 18.0278
@@ -89,6 +90,11 @@ position = Vector2( 380.847, 299.25 )
 scale = Vector2( 2.63216, 2.63216 )
 texture = ExtResource( 1 )
 
+[node name="Door2" type="Sprite" parent="Background"]
+position = Vector2( 169, 66 )
+scale = Vector2( 2.632, 2.632 )
+texture = ExtResource( 22 )
+
 [node name="YSort" type="YSort" parent="Background"]
 
 [node name="Player" parent="Background/YSort" instance=ExtResource( 2 )]
@@ -143,6 +149,11 @@ shape = SubResource( 32 )
 
 [node name="Interactables" type="Node2D" parent="Background"]
 
+[node name="Door" type="Sprite" parent="Background/Interactables"]
+position = Vector2( 84, 383 )
+scale = Vector2( 2.632, 2.632 )
+texture = ExtResource( 22 )
+
 [node name="TableSprite" type="Sprite" parent="Background/Interactables"]
 position = Vector2( 246, 336 )
 scale = Vector2( 2.632, 2.6 )
@@ -176,7 +187,7 @@ scale = Vector2( 2.7, 2.7 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 1, 407, 44, 407, 114, 406, 116, 379, 114, 365, 114, 353, 168, 353, 168, 328, 324, 329, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 1, 138, 1, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 55, 365, 114, 365, 114, 387, 114, 406, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561 )
+polygon = PoolVector2Array( 1, 407, 44, 407, 114, 406, 116, 379, 114, 365, 114, 353, 168, 353, 168, 328, 324, 329, 324, 288, 391, 288, 392, 586, 749, 586, 748, 115, 393, 116, 391, 229, 325, 229, 326, 128, 199, 128, 199, 84, 139, 83, 139, 118, 128, 118, 128, 132, 14, 131, 13, 218, 57, 218, 57, 313, 13, 313, 13, 354, 55, 354, 55, 365, 114, 365, 114, 387, 114, 406, 44, 407, 44, 365, 1, 365, 1, 44, 127, 44, 129, -18, 211, -18, 210, 42, 335, 42, 337, 157, 380, 158, 381, 42, 760, 44, 761, 596, 381, 597, 1, 597, 1, 561 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -187,8 +198,11 @@ pause_mode = 2
 pause_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 5 )
+volume_db = 0.5
 autoplay = true
+bus = "New Bus"
 
 [connection signal="playerFaint" from="WorldManager" to="Background/YSort/Player" method="_on_WorldManager_playerFaint"]
 [connection signal="saveGame" from="WorldManager" to="SaveGameManager" method="_on_WorldManager_saveGame"]

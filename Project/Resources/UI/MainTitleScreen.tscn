@@ -5088,8 +5088,10 @@ __meta__ = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
 stream = ExtResource( 28 )
 autoplay = true
+bus = "New Bus"
 
 [node name="OptionsMenu" type="CanvasLayer" parent="."]
 layer = 3

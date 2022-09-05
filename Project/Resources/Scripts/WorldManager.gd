@@ -19,6 +19,8 @@ func _ready():
 	Scenarios = get_tree().get_root().find_node("ScenariosPopUp",true,false)
 	UI.ShowPopUp("Welcome to GenSquish! Check out your house, breed slimes and complete challenges!")
 	UI.ShowTutorial()
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), 0.5)
+
 
 
 func EndDay():

@@ -77,6 +77,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label6" type="Label" parent="Theory"]
+margin_left = 208.0
+margin_top = 112.0
+margin_right = 256.0
+margin_bottom = 136.0
+text = "AA"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label7" type="Label" parent="Theory"]
+margin_left = 384.0
+margin_top = 112.0
+margin_right = 432.0
+margin_bottom = 136.0
+text = "bb"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Label3" type="Label" parent="Theory"]
 margin_left = 16.0
 margin_top = 152.0
@@ -105,7 +127,7 @@ margin_left = 16.0
 margin_top = 280.0
 margin_right = 608.0
 margin_bottom = 392.0
-text = "Each slime has a pair of allels. Having two same allels means, that the slime is homozygote. Having two different - slime is heterozygote."
+text = "Each slime has a pair of allels. Having two dominant or recessive allels means, that the slime is homozygote. Having two different - slime is heterozygote."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -113,10 +135,10 @@ __meta__ = {
 
 [node name="HealthySlime" type="AnimatedSprite" parent="Theory"]
 material = ExtResource( 2 )
-position = Vector2( 228, 104 )
+position = Vector2( 176, 104 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="HealthySlime2" type="AnimatedSprite" parent="Theory"]
@@ -124,7 +146,6 @@ material = ExtResource( 2 )
 position = Vector2( 340, 96 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 28 )
-frame = 4
 playing = true
 
 [node name="ExcersiseButton" type="Button" parent="Theory"]
@@ -148,6 +169,7 @@ __meta__ = {
 }
 
 [node name="Excercise" type="Panel" parent="."]
+visible = false
 margin_right = 624.0
 margin_bottom = 424.0
 rect_pivot_offset = Vector2( -456, -16 )

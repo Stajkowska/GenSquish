@@ -15,10 +15,11 @@ func _ready():
 
 func SellSlime(slime, price):
 	var proposedPrice = getSlimePrice(slime.Genes)
-	if (price > proposedPrice+40):
+	if (int(price) > proposedPrice+40):
+		print(price)
+		print(proposedPrice)
 		return false
-	else:
-		return true
+	return true
 
 func RemoveFood(cost):
 	FoodAmount -= cost
