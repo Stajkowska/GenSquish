@@ -18,7 +18,7 @@ func _ready():
 	Market = get_tree().get_root().find_node("MarketManager",true,false)
 	Scenarios = get_tree().get_root().find_node("ScenariosPopUp",true,false)
 	UI.ShowPopUp("Welcome to GenSquish! Check out your house, breed slimes and complete challenges!")
-
+	UI.ShowTutorial()
 
 
 func EndDay():

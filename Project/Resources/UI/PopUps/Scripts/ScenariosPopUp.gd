@@ -24,6 +24,8 @@ func FinishedScenario(number):
 			1:
 				UINode.ShowPopUp("You are awarded 100 gold")
 				Market.UpdateMoney(-100)
+				ScenariosUnlocked = number
+				UpdateScenarios()
 			2:
 				UINode.ShowPopUp("You are awarded 1 Slime")
 				var Slime1Genes = Genes.instance()
@@ -32,12 +34,18 @@ func FinishedScenario(number):
 				var SlimesInTree = get_tree().get_root().find_node("Slimes",true,false)
 				SlimesInTree.add_child(baby)
 				baby.spawnSlime(Slime1Genes)
+				ScenariosUnlocked = number
+				UpdateScenarios()
 			3:
 				UINode.ShowPopUp("You are awarded 250 gold")
 				Market.UpdateMoney(-250)
+				ScenariosUnlocked = number
+				UpdateScenarios()
 			4:
 				UINode.ShowPopUp("You are awarded 250 gold")
 				Market.UpdateMoney(-250)
+				ScenariosUnlocked = number
+				UpdateScenarios()
 			5:
 				UINode.ShowPopUp("You are awarded 2 Slimes")
 				var Slime1Genes = Genes.instance()
@@ -58,7 +66,7 @@ func FinishedScenario(number):
 				UINode.ShowPopUp("You are awarded 250 gold")
 				Market.UpdateMoney(-250)
 			8:
-				UINode.ShowPopUp("You are awarded 2 Slimes")
+				UINode.ShowPopUp("You got new Slimes!")
 				var Slime1Genes = Genes.instance()
 				var Slime2Genes = Genes.instance()
 				Slime1Genes.getRandomSlimeGenes()
@@ -77,7 +85,7 @@ func FinishedScenario(number):
 				UINode.ShowPopUp("You are awarded 1000 gold")
 				Market.UpdateMoney(-1000)
 		ScenariosUnlocked = number
-		UpdateScenarios()
+		
 	
 func _on_Scenario1_pressed():
 	$TheBasics.visible = true
@@ -96,6 +104,5 @@ func UpdateScenarios():
 		print(Scenarios[i])
 		Scenarios[i].disabled = false
 
-
-
-
+func _on_Scenario5_pressed():
+	$TheSecondLaw.visible = true

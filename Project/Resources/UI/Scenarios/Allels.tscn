@@ -116,7 +116,7 @@ material = ExtResource( 2 )
 position = Vector2( 228, 104 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="HealthySlime2" type="AnimatedSprite" parent="Theory"]
@@ -124,7 +124,7 @@ material = ExtResource( 2 )
 position = Vector2( 340, 96 )
 scale = Vector2( 6, 6 )
 frames = SubResource( 28 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="ExcersiseButton" type="Button" parent="Theory"]

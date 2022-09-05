@@ -1,4 +1,4 @@
-[gd_scene load_steps=231 format=2]
+[gd_scene load_steps=232 format=2]
 
 [ext_resource path="res://Resources/Scenes/Slime/Slime.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/UI/ThemeMAIN.tres" type="Theme" id=2]
@@ -8,16 +8,11 @@
 [ext_resource path="res://Resources/Sources/Action RPG Resources/Shadows/SmallShadow.png" type="Texture" id=6]
 [ext_resource path="res://Resources/UI/EButton.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Resources/Scenes/Slime/GeneManager.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Art/Props/floor.png" type="Texture" id=9]
 [ext_resource path="res://Resources/Scenes/Enemies/Stats.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Resources/Scenes/Enemies/WanderController.tscn" type="PackedScene" id=24]
 [ext_resource path="res://UsedAssets/Music/2020-02-22_-_Relaxing_Green_Nature_-_David_Fesliyan.mp3" type="AudioStream" id=28]
 [ext_resource path="res://Resources/UI/OptionsMainMenu.gd" type="Script" id=29]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1697, 33 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 32.5, 1164.5 )
 
 [sub_resource type="Shader" id=29]
 code = "shader_type canvas_item;
@@ -2933,142 +2928,18 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=228]
 
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1697, 33 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.5, 1164.5 )
+
 [node name="MainTitleScreen" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -1224.0
-margin_top = -864.0
-margin_right = 2168.0
-margin_bottom = 1416.0
-color = Color( 0.819608, 0.85098, 0.580392, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 488, 272 )
-current = true
-zoom = Vector2( 3, 3 )
-
-[node name="exitButton" type="Button" parent="."]
-margin_left = -520.0
-margin_top = 365.0
-margin_right = -321.0
-margin_bottom = 410.0
-rect_scale = Vector2( 4, 4 )
-theme = ExtResource( 2 )
-text = "Exit"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="playButton" type="Button" parent="."]
-margin_left = -520.0
-margin_top = 24.0
-margin_right = -321.0
-margin_bottom = 69.0
-rect_scale = Vector2( 4, 4 )
-theme = ExtResource( 2 )
-text = "Play"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="."]
-margin_left = -416.0
-margin_top = -272.0
-margin_right = -312.0
-margin_bottom = -252.0
-rect_scale = Vector2( 6, 6 )
-theme = ExtResource( 2 )
-text = "GenSquish!"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 28 )
-autoplay = true
-
-[node name="OptionsMenu" type="CanvasLayer" parent="."]
-layer = 3
-follow_viewport_scale = 0.5
-
-[node name="CanvasLayer" type="Control" parent="OptionsMenu"]
-pause_mode = 2
-visible = false
-margin_left = -1272.0
-margin_top = -904.0
-margin_right = -1272.0
-margin_bottom = -904.0
-rect_scale = Vector2( 4, 4 )
-script = ExtResource( 29 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect" type="ColorRect" parent="OptionsMenu/CanvasLayer"]
-margin_right = 894.0
-margin_bottom = 634.0
-color = Color( 0, 0, 0, 0.356863 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="HSlider" type="HSlider" parent="OptionsMenu/CanvasLayer"]
-margin_left = 382.0
-margin_top = 276.0
-margin_right = 518.0
-margin_bottom = 292.0
-theme = ExtResource( 2 )
-max_value = 1.0
-step = 0.1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="OptionsMenu/CanvasLayer"]
-margin_left = 414.0
-margin_top = 244.0
-margin_right = 518.0
-margin_bottom = 268.0
-theme = ExtResource( 2 )
-text = "Volume"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button" type="Button" parent="OptionsMenu/CanvasLayer"]
-margin_left = 406.0
-margin_top = 308.0
-margin_right = 502.0
-margin_bottom = 338.0
-theme = ExtResource( 2 )
-text = "Return"
-
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 463, -841 )
-shape = SubResource( 1 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( 488, 1392 )
-shape = SubResource( 1 )
-
-[node name="Area2D2" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( -1224.5, 267.5 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 2144, 264 )
-shape = SubResource( 2 )
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2( 488, 1392 )
-shape = SubResource( 1 )
+[node name="Floor" type="Sprite" parent="."]
+position = Vector2( 395, 323 )
+scale = Vector2( 20, 20 )
+texture = ExtResource( 9 )
 
 [node name="Slimes" type="Node2D" parent="."]
 scale = Vector2( 2, 2 )
@@ -5164,9 +5035,142 @@ parameters/playback = SubResource( 228 )
 
 [node name="Timer" type="Timer" parent="Slimes5/Slime8"]
 
-[connection signal="pressed" from="exitButton" to="OptionsMenu/CanvasLayer" method="_on_exitButton_pressed"]
-[connection signal="pressed" from="playButton" to="OptionsMenu/CanvasLayer" method="_on_playButton_pressed"]
-[connection signal="value_changed" from="OptionsMenu/CanvasLayer/HSlider" to="OptionsMenu/CanvasLayer" method="_on_HSlider_value_changed"]
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+margin_left = -528.0
+margin_top = -296.0
+margin_right = 296.0
+margin_bottom = 553.0
+color = Color( 0.882353, 0.784314, 0.658824, 0.392157 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 488, 272 )
+current = true
+zoom = Vector2( 3, 3 )
+
+[node name="exitButton" type="Button" parent="."]
+margin_left = -520.0
+margin_top = 365.0
+margin_right = -321.0
+margin_bottom = 410.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 2 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="playButton" type="Button" parent="."]
+margin_left = -520.0
+margin_top = 24.0
+margin_right = -321.0
+margin_bottom = 69.0
+rect_scale = Vector2( 4, 4 )
+theme = ExtResource( 2 )
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = -416.0
+margin_top = -272.0
+margin_right = -312.0
+margin_bottom = -252.0
+rect_scale = Vector2( 6, 6 )
+theme = ExtResource( 2 )
+text = "GenSquish!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 28 )
+autoplay = true
+
+[node name="OptionsMenu" type="CanvasLayer" parent="."]
+layer = 3
+follow_viewport_scale = 0.5
+
+[node name="CanvasLayer" type="Control" parent="OptionsMenu"]
+pause_mode = 2
+visible = false
+margin_left = -1272.0
+margin_top = -904.0
+margin_right = -1272.0
+margin_bottom = -904.0
+rect_scale = Vector2( 4, 4 )
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="OptionsMenu/CanvasLayer"]
+margin_right = 894.0
+margin_bottom = 634.0
+color = Color( 0, 0, 0, 0.356863 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSlider" type="HSlider" parent="OptionsMenu/CanvasLayer"]
+margin_left = 382.0
+margin_top = 276.0
+margin_right = 518.0
+margin_bottom = 292.0
+theme = ExtResource( 2 )
+max_value = 1.0
+step = 0.1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="OptionsMenu/CanvasLayer"]
+margin_left = 414.0
+margin_top = 244.0
+margin_right = 518.0
+margin_bottom = 268.0
+theme = ExtResource( 2 )
+text = "Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="OptionsMenu/CanvasLayer"]
+margin_left = 406.0
+margin_top = 308.0
+margin_right = 502.0
+margin_bottom = 338.0
+theme = ExtResource( 2 )
+text = "Return"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 463, -841 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 488, 1392 )
+shape = SubResource( 1 )
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( -1224.5, 267.5 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 2144, 264 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2( 488, 1392 )
+shape = SubResource( 1 )
+
 [connection signal="timeout" from="Slimes2/Slime/Timer" to="Slimes2/Slime" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Slimes2/Slime2/Timer" to="Slimes2/Slime2" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Slimes2/Slime3/Timer" to="Slimes2/Slime3" method="_on_Timer_timeout"]
@@ -5195,3 +5199,6 @@ parameters/playback = SubResource( 228 )
 [connection signal="timeout" from="Slimes5/Slime6/Timer" to="Slimes5/Slime6" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Slimes5/Slime7/Timer" to="Slimes5/Slime7" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Slimes5/Slime8/Timer" to="Slimes5/Slime8" method="_on_Timer_timeout"]
+[connection signal="pressed" from="exitButton" to="OptionsMenu/CanvasLayer" method="_on_exitButton_pressed"]
+[connection signal="pressed" from="playButton" to="OptionsMenu/CanvasLayer" method="_on_playButton_pressed"]
+[connection signal="value_changed" from="OptionsMenu/CanvasLayer/HSlider" to="OptionsMenu/CanvasLayer" method="_on_HSlider_value_changed"]

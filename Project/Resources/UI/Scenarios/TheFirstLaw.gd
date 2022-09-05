@@ -35,7 +35,7 @@ func _on_CheckAnswerB_pressed():
 		$Excercise/Button6.pressed || $Excercise/Button7.pressed):
 			UINode.ShowPopUp("This is not correct. Remember to read the theory carefully. You probably selected too much options.")
 		else:
-			UINode.ShowPopUp("Congratulations! You unlocked the next scenario.")
+			UINode.ShowPopUp("Congratulations! You unlocked the next challenge.")
 			$Theory.visible = true
 			$Excercise.visible = false
 			self.visible = false

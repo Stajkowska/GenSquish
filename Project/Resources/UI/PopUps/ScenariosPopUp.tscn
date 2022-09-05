@@ -171,3 +171,4 @@ __meta__ = {
 [connection signal="pressed" from="MainMenu/Scenario2" to="." method="_on_Scenario2_pressed"]
 [connection signal="pressed" from="MainMenu/Scenario3" to="." method="_on_Scenario3_pressed"]
 [connection signal="pressed" from="MainMenu/Scenario4" to="." method="_on_Scenario4_pressed"]
+[connection signal="pressed" from="MainMenu/Scenario5" to="." method="_on_Scenario5_pressed"]

@@ -34,7 +34,7 @@ func _on_CheckAnswerB_pressed():
 	$Excercise/Label7/aa.get_selected_id() == 2 &&
 	$Excercise/Label8/Ba.get_selected_id() == 0 &&
 	$Excercise/Label9/AB.get_selected_id() == 1):
-		UINode.ShowPopUp("Congratulations! You unlocked the next scenario.")
+		UINode.ShowPopUp("Congratulations! You unlocked the next challenge.")
 		$Theory.visible = true
 		$Excercise.visible = false
 		self.visible = false
