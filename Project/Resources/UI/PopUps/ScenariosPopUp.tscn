@@ -9,8 +9,9 @@
 [ext_resource path="res://Resources/UI/Scenarios/Allels.tscn" type="PackedScene" id=7]
 
 [node name="ScenariosPopUp" type="WindowDialog"]
-margin_right = 480.0
-margin_bottom = 296.0
+visible = true
+margin_right = 616.0
+margin_bottom = 416.0
 theme = ExtResource( 1 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -22,81 +23,81 @@ margin_right = 1024.0
 margin_bottom = 640.0
 
 [node name="Panel" type="Panel" parent="MainMenu"]
-margin_right = 480.0
-margin_bottom = 296.0
+margin_right = 616.0
+margin_bottom = 416.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Scenario1" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 24.0
+margin_left = 32.0
 margin_top = 48.0
-margin_right = 144.0
-margin_bottom = 152.0
+margin_right = 280.0
+margin_bottom = 160.0
 
 [node name="Label" type="Label" parent="MainMenu/Scenario1"]
-margin_top = 40.0
-margin_right = 120.0
-margin_bottom = 88.0
+margin_top = 48.0
+margin_right = 240.0
+margin_bottom = 96.0
 text = "The Basics"
 align = 1
 autowrap = true
 
 [node name="Scenario2" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 176.0
-margin_top = 48.0
-margin_right = 296.0
-margin_bottom = 152.0
+margin_left = 32.0
+margin_top = 168.0
+margin_right = 280.0
+margin_bottom = 280.0
 disabled = true
 
 [node name="Label" type="Label" parent="MainMenu/Scenario2"]
 margin_top = 40.0
-margin_right = 120.0
+margin_right = 248.0
 margin_bottom = 106.0
 text = "Allels"
 align = 1
 autowrap = true
 
 [node name="Scenario3" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 328.0
-margin_top = 48.0
-margin_right = 448.0
-margin_bottom = 152.0
+margin_left = 32.0
+margin_top = 288.0
+margin_right = 280.0
+margin_bottom = 400.0
 disabled = true
 
 [node name="Label" type="Label" parent="MainMenu/Scenario3"]
-margin_top = 16.0
-margin_right = 120.0
+margin_top = 32.0
+margin_right = 240.0
 margin_bottom = 106.0
 text = "Genotype and Fenotype"
 align = 1
 autowrap = true
 
 [node name="Scenario4" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 96.0
-margin_top = 168.0
-margin_right = 216.0
-margin_bottom = 272.0
+margin_left = 304.0
+margin_top = 88.0
+margin_right = 552.0
+margin_bottom = 200.0
 disabled = true
 
 [node name="Label" type="Label" parent="MainMenu/Scenario4"]
-margin_top = 16.0
-margin_right = 120.0
+margin_top = 24.0
+margin_right = 248.0
 margin_bottom = 90.0
 text = "The Law of Equal Segreagtion"
 align = 1
 autowrap = true
 
 [node name="Scenario5" type="Button" parent="MainMenu" groups=["Scenario"]]
-margin_left = 264.0
-margin_top = 168.0
-margin_right = 384.0
-margin_bottom = 272.0
+margin_left = 304.0
+margin_top = 224.0
+margin_right = 552.0
+margin_bottom = 336.0
 disabled = true
 
 [node name="Label" type="Label" parent="MainMenu/Scenario5"]
-margin_top = 8.0
-margin_right = 120.0
+margin_top = 24.0
+margin_right = 248.0
 margin_bottom = 105.0
 text = "The Law of Independent Assortment"
 align = 1

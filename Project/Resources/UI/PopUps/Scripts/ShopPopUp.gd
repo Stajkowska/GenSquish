@@ -86,8 +86,14 @@ func prepareSlimeCenter():
 			Prices.append(price)
 			i.get_node("Slime").material.set_shader_param("body_color", Slime1Genes.getBodyColour())
 			i.get_node("Description").text = str(price)	
-
+		$SlimeCenter/Slime1Data/ColorRect4/Buy1.disabled = false
+		$SlimeCenter/Slime2Data/ColorRect5/Buy2.disabled = false
+		$SlimeCenter/Slime3Data/ColorRect6/Buy3.disabled = false
+		$SlimeCenter/Slime4Data/ColorRect4/Buy4.disabled = false
+		$SlimeCenter/Slime5Data/ColorRect5/Buy5.disabled = false
+		$SlimeCenter/Slime6Data/ColorRect6/Buy6.disabled = false
 		generated = true
+		
 	
 
 func _on_ShopPopUp_hide():
@@ -104,6 +110,7 @@ func _on_Buy6_pressed():
 		baby.spawnSlime(Slimes[5])
 		$SlimeCenter/Slime6Data/ColorRect6/Buy6.disabled = true
 		Magazine.UpdateMoney(Prices[5])
+	checkSlimes()
 	
 func _on_Buy5_pressed():
 	if (checkGold(Prices[4])):
@@ -113,6 +120,7 @@ func _on_Buy5_pressed():
 		baby.spawnSlime(Slimes[4])
 		$SlimeCenter/Slime5Data/ColorRect5/Buy5.disabled = true
 		Magazine.UpdateMoney(Prices[4])
+	checkSlimes()
 
 func _on_Buy4_pressed():
 	if (checkGold(Prices[3])):
@@ -122,6 +130,7 @@ func _on_Buy4_pressed():
 		baby.spawnSlime(Slimes[3])
 		$SlimeCenter/Slime4Data/ColorRect4/Buy4.disabled = true
 		Magazine.UpdateMoney(Prices[3])
+	checkSlimes()
 
 func _on_Buy3_pressed():
 	if (checkGold(Prices[2])):
@@ -131,6 +140,7 @@ func _on_Buy3_pressed():
 		baby.spawnSlime(Slimes[2])
 		$SlimeCenter/Slime3Data/ColorRect6/Buy3.disabled = true
 		Magazine.UpdateMoney(Prices[2])
+	checkSlimes()
 
 func _on_Buy2_pressed():
 	if (checkGold(Prices[1])):
@@ -140,6 +150,7 @@ func _on_Buy2_pressed():
 		baby.spawnSlime(Slimes[1])
 		$SlimeCenter/Slime2Data/ColorRect5/Buy2.disabled = true
 		Magazine.UpdateMoney(Prices[1])
+	checkSlimes()
 
 func _on_Buy1_pressed():
 	if (checkGold(Prices[0])):
@@ -149,6 +160,7 @@ func _on_Buy1_pressed():
 		baby.spawnSlime(Slimes[0])
 		$SlimeCenter/Slime1Data/ColorRect4/Buy1.disabled = true
 		Magazine.UpdateMoney(Prices[0])
+	checkSlimes()
 	
 func checkGold(price):
 	if (Magazine.Money < price):
@@ -156,3 +168,12 @@ func checkGold(price):
 		return false
 	else:
 		return true
+		
+func checkSlimes():
+
+	if ($SlimeCenter/Slime1Data/ColorRect4/Buy1.disabled && $SlimeCenter/Slime2Data/ColorRect5/Buy2.disabled 
+	&& $SlimeCenter/Slime3Data/ColorRect6/Buy3.disabled && $SlimeCenter/Slime4Data/ColorRect4/Buy4.disabled
+	&& $SlimeCenter/Slime5Data/ColorRect5/Buy5.disabled && $SlimeCenter/Slime6Data/ColorRect6/Buy6.disabled):
+		generated = false
+		prepareSlimeCenter()
+		print("Prawda")

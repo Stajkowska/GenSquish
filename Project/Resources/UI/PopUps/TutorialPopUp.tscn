@@ -116,9 +116,8 @@ animations = [ {
 } ]
 
 [node name="TutorialPopUp" type="WindowDialog"]
-visible = true
-margin_right = 496.0
-margin_bottom = 328.0
+margin_right = 493.0
+margin_bottom = 327.0
 rect_scale = Vector2( 1.2, 1.2 )
 theme = ExtResource( 1 )
 window_title = "How to play?"
@@ -251,7 +250,7 @@ material = ExtResource( 4 )
 position = Vector2( 376, 216 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 28 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="EButton" parent="Page1" instance=ExtResource( 3 )]
@@ -433,6 +432,7 @@ material = ExtResource( 4 )
 position = Vector2( 120, 184 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 29 )
+frame = 2
 playing = true
 
 [node name="Label12" type="Label" parent="Page3"]
@@ -559,7 +559,7 @@ material = ExtResource( 4 )
 position = Vector2( 96, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 3
+frame = 5
 playing = true
 
 [node name="SlimeInLove2" type="AnimatedSprite" parent="Page4"]
@@ -567,7 +567,7 @@ material = ExtResource( 4 )
 position = Vector2( 176, 248 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 30 )
-frame = 2
+frame = 4
 playing = true
 flip_h = true
 

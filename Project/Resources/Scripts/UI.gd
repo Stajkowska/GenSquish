@@ -164,7 +164,7 @@ func WaterWindow():
 #Tutorial
 func ShowTutorial():
 	self.show()
-	$TutorialPopUp.set_position(get_viewport_rect().size / 2*1.2 - $TutorialPopUp.rect_size /2*1.2 )
+	$TutorialPopUp.set_position(get_viewport_rect().size / 2 - $TutorialPopUp.rect_size /2 )
 	$TutorialPopUp.show()
 	
 #Shop

@@ -144,7 +144,7 @@ func wander(delta):
 	var direction = global_position.direction_to(WC.targetP)
 	velocity = velocity.move_toward(direction * maxSpeed, acceleration * delta)
 	animationState.travel("Jump")
-	if global_position.distance_to(WC.targetP) <= 1:
+	if global_position.distance_to(WC.targetP) <= 50:
 		state = randomState([IDLE, WANDER])
 	
 func seekPartner(delta):
