@@ -1,1 +1,1 @@
-# master_project
+Welcome to GenSquish. The project was made on the Godot engine with the use of hand-made graphics created in the Aseprite program. The created game prototype allows the user to play the role of a slime breeder who, on the basis of the information presented, can take care of them and reproduce them, using the knowledge about the rules of inheritance.
