@@ -144,6 +144,7 @@ shader_param/body_mask_color = Color( 0.847059, 0.298039, 0.298039, 1 )
 shader_param/heart_mask_color = Color( 1, 0.615686, 0.898039, 1 )
 
 [node name="ShopPopUp" type="WindowDialog"]
+visible = true
 margin_right = 464.0
 margin_bottom = 232.0
 theme = ExtResource( 1 )
@@ -503,7 +504,7 @@ material = SubResource( 31 )
 position = Vector2( 16, 16 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime1Data"]
@@ -552,7 +553,7 @@ material = SubResource( 30 )
 position = Vector2( 48, 152 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime2Data"]
@@ -598,7 +599,7 @@ material = SubResource( 32 )
 position = Vector2( 48, 96 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Sprite4" type="Sprite" parent="SlimeCenter/Slime3Data"]
@@ -649,7 +650,7 @@ material = SubResource( 33 )
 position = Vector2( 16, 16 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime4Data"]
@@ -699,7 +700,7 @@ material = SubResource( 34 )
 position = Vector2( 48, 152 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Description" type="Label" parent="SlimeCenter/Slime5Data"]
@@ -746,6 +747,7 @@ material = SubResource( 35 )
 position = Vector2( 48, 96 )
 scale = Vector2( 3, 3 )
 frames = SubResource( 28 )
+frame = 2
 playing = true
 
 [node name="Sprite4" type="Sprite" parent="SlimeCenter/Slime6Data"]

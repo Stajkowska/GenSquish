@@ -43,6 +43,7 @@ __meta__ = {
 }
 
 [node name="TimePanel" type="Panel" parent="."]
+visible = false
 margin_left = 452.0
 margin_right = 512.0
 margin_bottom = 35.0
@@ -51,6 +52,7 @@ __meta__ = {
 }
 
 [node name="TimeLabel" type="Label" parent="TimePanel"]
+visible = false
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 50.0

@@ -60,15 +60,15 @@ func _ready():
 	scale.y	= Genes.getSizeGeneValue()
 	add_to_group("Persist", true)
 	add_to_group("Interactable", true)
-	T.start(1200) #start timer for 20 minutes
+	T.start(1200) #start timer for 20 minutes 1200
 
 func spawnSlime(_Genes):
 	add_to_group("Persist", true)
 	add_to_group("Interactable", true)
 	Genes.setGenes(_Genes)
-	scale.x	= Genes.getSizeGeneValue()
-	scale.y	= Genes.getSizeGeneValue()
-	material.set_shader_param("body_color", Genes.getBodyColour())
+	scale.x	= _Genes.getSizeGeneValue()
+	scale.y	= _Genes.getSizeGeneValue()
+	material.set_shader_param("body_color", _Genes.getBodyColour())
 	var spawnPoint = get_parent()
 	position = spawnPoint.position
 	global_position = spawnPoint.position
@@ -110,6 +110,7 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity)
 
 func checkSlimeHealth():
+	state  = IDLE
 	if (!getFed && !isSick):
 		healthStatus = "Hungry"
 		state = HUNGRY
@@ -222,6 +223,8 @@ func save():
 	
 func gotMedicine():
 	getMedicine = true
+	checkSlimeHealth()
+	state = IDLE
 	
 func gotLovePotion():
 	if(!isSick):

@@ -59,6 +59,7 @@ margin_bottom = 408.0
 [node name="ShopPopUp" parent="." groups=["PopUps"] instance=ExtResource( 8 )]
 
 [node name="ScenariosPopUp" parent="." groups=["PopUps"] instance=ExtResource( 11 )]
+visible = false
 
 [connection signal="visibility_changed" from="." to="." method="_on_CanvasForPopups_visibility_changed"]
 [connection signal="about_to_show" from="SleepPopUp" to="." method="_on_SleepPopUp_about_to_show"]

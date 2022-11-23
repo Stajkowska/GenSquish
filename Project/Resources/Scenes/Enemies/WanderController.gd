@@ -1,8 +1,8 @@
 extends Node2D
 
-export(int) var wanderRange = 32
-onready var startP = global_position
-onready var targetP = global_position
+export(int) var wanderRange = 100
+onready var startP = self.global_position
+onready var targetP = self.global_position
 onready var timer = $Timer
 
 func updateTarget():

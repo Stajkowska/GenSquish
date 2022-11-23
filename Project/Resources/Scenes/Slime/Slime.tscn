@@ -26,7 +26,7 @@ radius = 29.0172
 radius = 6.0
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 3.0
+radius = 2.0
 
 [sub_resource type="Animation" id=4]
 length = 0.001
@@ -102,7 +102,7 @@ script = ExtResource( 8 )
 [node name="GeneManager" parent="." instance=ExtResource( 12 )]
 
 [node name="WanderController" parent="." instance=ExtResource( 9 )]
-position = Vector2( 0, 2 )
+position = Vector2( 0, 1 )
 
 [node name="Stats" parent="." instance=ExtResource( 2 )]
 
@@ -115,6 +115,7 @@ collision_mask = 2
 shape = SubResource( 27 )
 
 [node name="Detection" type="Area2D" parent="."]
+light_mask = 4
 position = Vector2( 0, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
@@ -126,10 +127,13 @@ texture = ExtResource( 10 )
 
 [node name="SoftCollision" type="Area2D" parent="."]
 position = Vector2( 0, 2 )
+collision_layer = 4
+collision_mask = 4
 script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SoftCollision"]
 shape = SubResource( 28 )
+disabled = true
 
 [node name="Slime" type="Sprite" parent="."]
 use_parent_material = true
@@ -138,7 +142,7 @@ texture = ExtResource( 1 )
 hframes = 30
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-visible = false
+light_mask = 64
 position = Vector2( 0, 5 )
 shape = SubResource( 2 )
 

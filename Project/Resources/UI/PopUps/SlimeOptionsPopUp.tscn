@@ -108,6 +108,7 @@ animations = [ {
 } ]
 
 [node name="SlimeOptions" type="WindowDialog" groups=["PopUps"]]
+visible = true
 margin_right = 424.0
 margin_bottom = 216.0
 input_pass_on_modal_close_click = false
@@ -217,7 +218,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 7 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="IllSlime" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -226,7 +227,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 20 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="SlimeInLove" type="AnimatedSprite" parent="NinePatchRect/Panel"]
@@ -235,7 +236,7 @@ material = ExtResource( 6 )
 position = Vector2( 32, 40 )
 scale = Vector2( 4.5, 4.5 )
 frames = SubResource( 21 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Status" type="Label" parent="NinePatchRect"]
@@ -260,6 +261,7 @@ __meta__ = {
 }
 
 [node name="Age" type="Label" parent="NinePatchRect"]
+visible = false
 margin_left = 81.0
 margin_top = 64.0
 margin_right = 297.0
